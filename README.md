@@ -1,18 +1,24 @@
-# React + Vite
+My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive personal portfolio built using Vite, React, Tailwind CSS, and Framer Motion.
+This portfolio showcases my skills, projects, certificates, resume, and contact information, with smooth animations and a clean UI.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Super-fast Vite setup
 
-## React Compiler
+🎨 Modern UI with Tailwind CSS
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+🎞️ Smooth animations using Framer Motion
 
-Note: This will impact Vite dev & build performances.
+📱 Fully responsive
 
-## Expanding the ESLint configuration
+🧭 React Router v6 navigation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💼 Project showcase section
+
+📄 Resume page
+
+🧾 Certificates gallery
+
+📬 Contact page
