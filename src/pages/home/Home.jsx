@@ -77,7 +77,7 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* Buttons */}
+          Buttons
           <div className="flex gap-6 mt-10">
             <a
               href="/projects"
