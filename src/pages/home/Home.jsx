@@ -18,8 +18,8 @@ export default function Home() {
   ];
 
   const quickLinks = [
-    { img: github, title: "GitHub", link: "https://github.com" },
-    { img: linkedin, title: "LinkedIn", link: "https://linkedin.com" },
+    { img: github, title: "GitHub", link: "https://github.com/Rohitgholap222" },
+    { img: linkedin, title: "LinkedIn", link: "https://www.linkedin.com/in/rohit-gholap-576886270" },
     { img: gmail, title: "Email", link: "mailto:test@gmail.com" },
     { img: whatsapp, title: "WhatsApp", link: "https://wa.me/+91XXXXXXXXXX" },
     { img: insta, title: "Instagram", link: "https://instagram.com" },
