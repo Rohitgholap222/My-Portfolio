@@ -5,13 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const links = [
   { name: "Home", to: "/" },
   { name: "Projects", to: "/projects" },
-  { name: "Gallery", to: "/gallery" },
   { name: "Skills", to: "/skills" },
   { name: "Certificates", to: "/certificates" },
-  { name: "Blog", to: "/blog" },
   { name: "Resume", to: "/resume" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
+  
 ];
 
 export default function Navbar() {

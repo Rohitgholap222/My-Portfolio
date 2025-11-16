@@ -6,7 +6,7 @@ const router = createBrowserRouter([
     {   path : "/", element : <pages.Home/>    },
     {   path : "/projects", element : <pages.Projects/>    },
     {   path : "/skills", element : <pages.Skills/>    },
-    {   path : "/certificate", element : <pages.Certificate/>    },
+    {   path : "/certificates", element : <pages.Certificates/>    },
     {   path : "/about", element : <pages.About/>    },
     {   path : "/contact", element : <pages.Contact/>    },
     {   path : "/resume", element : <pages.Resume/>    },
