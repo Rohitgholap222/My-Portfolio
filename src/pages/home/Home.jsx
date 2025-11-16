@@ -77,8 +77,8 @@ export default function Home() {
             ))}
           </motion.div>
 
-          Buttons
-          <div className="flex gap-6 mt-10">
+          {/* Buttons */}
+          {/* <div className="flex gap-6 mt-10">
             <a
               href="/projects"
               className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-xl text-white text-lg transition 
@@ -94,7 +94,7 @@ export default function Home() {
             >
               Contact Me
             </a>
-          </div>
+          </div> */}
 
           {/* Info Cards */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
