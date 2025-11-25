@@ -22,7 +22,7 @@ export default function Home() {
     { img: linkedin, title: "LinkedIn", link: "https://www.linkedin.com/in/rohit-gholap-576886270" },
     { img: gmail, title: "Email", link: "mailto:test@gmail.com" },
     { img: whatsapp, title: "WhatsApp", link: "https://wa.me/+91XXXXXXXXXX" },
-    { img: insta, title: "Instagram", link: "https://instagram.com" },
+    { img: insta, title: "Instagram", link: "https://www.instagram.com/rohit_gholap172/" },
     { img: facebook, title: "Facebook", link: "https://facebook.com" },
   ];
 
