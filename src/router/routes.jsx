@@ -11,6 +11,7 @@ const router = createBrowserRouter([
     {   path : "/contact", element : <pages.Contact/>    },
     {   path : "/resume", element : <pages.Resume/>    },
     {   path : "*", element : <pages.NotFound/>    },
+    
 ])
 
 export default router;
