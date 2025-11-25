@@ -21,7 +21,7 @@ export default function Skills() {
           My <span className="text-purple-400">Skills</span>
         </motion.h1>
 
-        <div className="flex flex-wrap gap-4 mt-6">
+        <div className="flex gap-4 mt-6">
           {skills.map((skill, i) => (
             <motion.div
               key={i}

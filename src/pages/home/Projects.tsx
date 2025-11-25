@@ -1,6 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import { motion } from "framer-motion";
 
 interface Project {
   title: string;
@@ -19,20 +18,26 @@ const projects: Project[] = [
   {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
-    tech: ["Java", "MySQL", "Tailwind"],
+    tech: ["Java", "postgreSQL", "Tailwind", "Spring Boot","React"],
     link: "https://github.com/",
   },
   {
-    title: "AI Image Classifier",
-    description: "ML model for object classification using TensorFlow & FastAPI.",
-    tech: ["Python", "TensorFlow", "FastAPI"],
-    link: "https://github.com/",
+    title: "BigMart - E-commerce Web App",
+    description: "E-commerce web application with product recommendations.",
+    tech: ["Java", "Spring Boot", "React"],
+    link: "https://github.com/Rohitgholap222/BigMart-Web",
   },
   {
     title: "Portfolio Website",
     description: "Personal portfolio built using React + Tailwind + Framer Motion.",
     tech: ["React", "Tailwind"],
-    link: "https://github.com/",
+    link: "https://github.com/Rohitgholap222/My-Portfolio",
+  },
+  {
+    title: "Bookito - Book Recommendation System",
+    description: "Bookito is Personel book recommendation system that stores reading history and recommends books accordingly.",
+    tech: ["Python", "Flask"],
+    link: "https://github.com/Rohitgholap222/Bookito-Python-Project",
   },
 ];
 

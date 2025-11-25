@@ -4,19 +4,24 @@ import { motion } from "framer-motion";
 
 const certificates = [
   {
-    title: "Frontend Development",
-    org: "Coursera",
-    year: 2024,
-  },
-  {
     title: "Java Programming",
-    org: "HackerRank",
-    year: 2023,
+    org: "NPTEL",
+    year: 2025,
   },
   {
-    title: "UI/UX Design Basics",
-    org: "Google",
+    title: "Python Fundamentals",
+    org: "Great Learning",
     year: 2024,
+  },
+  {
+    title: "Git and GitHub",
+    org: "PrepInsta",
+    year: 2025,
+  },
+  {
+    title: "Full Stack WEB Development",
+    org: "PrepInsta",
+    year: 2025,
   },
 ];
 
