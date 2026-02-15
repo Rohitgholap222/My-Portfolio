@@ -157,13 +157,15 @@ export default function Home() {
         viewport={{ once: true }}
         className="max-w-7xl mx-auto px-8 py-10 relative z-10"
       >
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 ">
           <div className="space-y-1 text-center md:text-left">
             <span className="text-indigo-400 font-bold tracking-[0.2em] text-[9px] uppercase">Socials</span>
             <h2 className="text-2xl font-['Playfair_Display'] font-bold text-[#fcfcfc]">Let's build together.</h2>
           </div>
 
-          <div className="flex gap-3">
+          
+        </div>
+        <div className="flex gap-3">
             {quickLinks.map((item, i) => (
               <motion.a
                 key={i}
@@ -176,7 +178,6 @@ export default function Home() {
               </motion.a>
             ))}
           </div>
-        </div>
       </motion.section>
 
       

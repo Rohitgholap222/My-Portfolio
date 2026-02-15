@@ -58,17 +58,10 @@ export default function Certificates() {
           >
             <div className="w-6 h-[1px] bg-indigo-500/50"></div>
             <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
-              Recognition
+              Certifications
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
-          >
-            Verified <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Credentials</span>.
-          </motion.h1>
         </div>
 
         {/* CERTIFICATES MODULES - Tighter layout */}
@@ -90,23 +83,17 @@ export default function Certificates() {
                 📜
               </div>
               <div className="space-y-0.5">
-                <span className="text-[8px] font-bold text-white/20 uppercase tracking-widest">{cert.year}</span>
-                <h3 className="text-sm font-bold font-['Playfair_Display'] text-[#fcfcfc] leading-tight group-hover:text-indigo-400 transition-colors">
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{cert.year}</span>
+                <h3 className="text-base font-bold font-['Playfair_Display'] text-[#fcfcfc] leading-tight group-hover:text-indigo-400 transition-colors">
                   {cert.title}
                 </h3>
-                <p className="text-[11px] text-white/30 font-medium">{cert.org}</p>
+                <p className="text-[12px] text-white/50 font-medium">{cert.org}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* FOOTER - Compact */}
-      <footer className="py-8 border-t border-white/5 text-center">
-        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Rohit Gholap
-        </p>
-      </footer>
     </div>
   );
 }

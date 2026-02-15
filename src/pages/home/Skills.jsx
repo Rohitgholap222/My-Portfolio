@@ -3,19 +3,20 @@ import Navbar from "../../components/Navbar";
 
 const categories = [
   {
-    title: "Frontend Engineering",
-    icon: "🎨",
+    title: "Frontend ",
     skills: ["React.js", "JavaScript", "TailwindCSS", "HTML", "CSS", "Framer Motion"]
   },
   {
     title: "Backend Core",
-    icon: "⚙️",
-    skills: ["Spring Boot", "Node.js", "Express", "REST APIs", "Java", "Python"]
+    skills: ["Spring Boot",  "REST APIs", "Java", "Python"]
   },
   {
-    title: "Database & Tools",
-    icon: "🛠️",
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Git", "GitHub", "Vite", "Postman"]
+    title: "Database ",
+    skills: ["MySQL", "PostgreSQL", "MongoDB"]
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "GitHub", "Postman"]
   }
 ];
 
@@ -53,17 +54,11 @@ export default function Skills() {
           >
             <div className="w-6 h-[1px] bg-indigo-500/50"></div>
             <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
-              Abilities
+              Skills
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
-          >
-            Technical <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Proficiencies</span>.
-          </motion.h1>
+          
         </div>
 
         {/* SKILLS GRID - Tighter layout */}
@@ -81,11 +76,9 @@ export default function Skills() {
               whileHover={{ y: -3 }}
               className="bg-white/5 p-6 rounded-xl border border-white/5 relative group transition-all"
             >
-              <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-500/20 transition-all">
-                {category.icon}
-              </div>
 
-              <div className="space-y-3">
+
+              <div className="space-y-4">
                 <h3 className="text-lg font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
                   {category.title}
                 </h3>
@@ -93,7 +86,7 @@ export default function Skills() {
                   {category.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 bg-white/5 border border-white/5 rounded-md text-[8px] font-bold text-white/20 uppercase tracking-widest"
+                      className="px-2 py-0.5 bg-white/5 border border-white/20 rounded-md text-[10px] font-bold text-white/70 uppercase tracking-widest"
                     >
                       {skill}
                     </span>
@@ -105,12 +98,7 @@ export default function Skills() {
         </motion.div>
       </section>
 
-      {/* FOOTER - Compact */}
-      <footer className="py-8 border-t border-white/5 text-center">
-        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Rohit Gholap
-        </p>
-      </footer>
+
     </div>
   );
 }

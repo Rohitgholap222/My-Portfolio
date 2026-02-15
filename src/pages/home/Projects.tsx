@@ -9,12 +9,7 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    title: "Collaborative Whiteboard",
-    description: "A real-time multi-user drawing board using WebSockets, React, and Spring Boot.",
-    tech: ["React", "Spring Boot", "WebSockets"],
-    link: "https://github.com/",
-  },
+
   {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
@@ -28,13 +23,19 @@ const projects: Project[] = [
     link: "https://github.com/Rohitgholap222/BigMart-Web",
   },
   {
+    title: "Meal-Mitra AI",
+    description: "AI-powered meal recommendation system.",
+    tech: ["Python", "Machine Learning", "React"],
+    link: "#",
+  },
+  {
     title: "Modern Portfolio",
     description: "Editorial-style personal portfolio built using React, Tailwind, and Framer Motion.",
     tech: ["React", "Tailwind", "Framer Motion"],
     link: "https://github.com/Rohitgholap222/My-Portfolio",
   },
   {
-    title: "Bookito AI",
+    title: "Bookito",
     description: "Smart book recommendation system that learns from user reading history and preferences.",
     tech: ["Python", "Flask", "Machine Learning"],
     link: "https://github.com/Rohitgholap222/Bookito-Python-Project",
@@ -149,12 +150,7 @@ export default function Projects() {
         </motion.div>
       </section>
 
-      {/* FOOTER - Compact */}
-      <footer className="py-8 border-t border-white/5 text-center">
-        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Rohit Gholap
-        </p>
-      </footer>
+
     </div>
   );
 }

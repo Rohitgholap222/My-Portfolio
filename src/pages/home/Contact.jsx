@@ -145,12 +145,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* FOOTER - Compact */}
-      <footer className="py-8 border-t border-white/5 text-center">
-        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Rohit Gholap
-        </p>
-      </footer>
     </div>
   );
 }
