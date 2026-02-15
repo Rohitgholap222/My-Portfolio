@@ -1,19 +1,19 @@
-import React from "react";
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import photo from "/rohit.jpg";
-import github from "/github.png";
-import linkedin from "/linkedin.png";
-import gmail from "/gmail.png";
-import whatsapp from "/whatsapp.png";
-import insta from "/insta.png";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import facebook from "/facebook.png";
+import github from "/github.png";
+import gmail from "/gmail.png";
+import insta from "/insta.png";
+import linkedin from "/linkedin.png";
+import photo from "/rohit.jpg";
+import whatsapp from "/whatsapp.png";
 
 export default function Home() {
+  const navigate = useNavigate();
   const professions = [
-    "Frontend Developer",
-    "UI/UX",
     "Backend Developer",
+    "Frontend Developer",
     "Full Stack Learner",
   ];
 
@@ -27,141 +27,122 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-[#050505] text-white font-sans">
-      {/* Navbar */}
+    <div className="min-h-screen w-full bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white">
       <Navbar />
 
       {/* ------------------- HERO SECTION ------------------- */}
-      <section className="max-w-7xl mx-auto px-6 pt-32 pb-20 flex flex-col-reverse md:flex-row items-center gap-14">
-
+      <section className="max-w-7xl mx-auto px-8 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* ------------ LEFT CONTENT ------------- */}
-        <div className="flex-1">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-extrabold leading-tight"
-          >
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-pink-500 bg-clip-text text-transparent animate-pulse">
-              Rohit Gholap
-            </span>
-          </motion.h1>
+        <div className="order-2 lg:order-1 space-y-6">
+          <div className="inline-flex items-center gap-3 px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-[12px] font-semibold text-indigo-400 tracking-wide">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+            Available for new projects
+          </div>
 
-          {/* Typing subtitle */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+          <div className="space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold leading-tight text-[#fcfcfc] tracking-tight"
+            >
+              Full-stack  <span className="italic text-indigo-400">developer</span>.
+            </motion.h1>
 
-          >
-            Frontend Developer | Spring-Boot | Git & Github
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-base text-white/60 max-w-lg leading-relaxed font-normal"
+            >
+              I'm <span className="font-semibold text-[#fcfcfc]">Rohit Gholap</span>, a Full-Stack developer based in Pune.
+              Refining the digital landscape through clean code and thoughtful design.
+            </motion.p>
+          </div>
 
-          {/* Profession Tags */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-3 mt-6"
-          >
+          <div className="flex flex-wrap gap-3 pt-2">
             {professions.map((role, i) => (
-              <motion.div
+              <span
                 key={i}
-                whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/20 
-                rounded-xl text-sm backdrop-blur-md"
+                className="text-[11px] uppercase tracking-[0.15em] font-bold text-white/30 border-l border-indigo-500/30 pl-3"
               >
                 {role}
-              </motion.div>
+              </span>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Buttons */}
-          {/* <div className="flex gap-6 mt-10">
-            <a
-              href="/projects"
-              className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-xl text-white text-lg transition 
-              shadow-lg shadow-purple-600/40"
+          <div className="flex items-center gap-5 pt-4">
+            <button
+              onClick={() => navigate("/projects")}
+              className="px-6 py-3 bg-white text-black rounded-lg font-bold shadow-xl shadow-white/5 hover:bg-indigo-500 hover:text-white transition-all active:scale-95 text-sm"
             >
-              View Projects
-            </a>
-
-            <a
-              href="/contact"
-              className="px-6 py-3 border border-gray-600 hover:border-purple-500 hover:text-purple-400 
-              rounded-xl text-lg transition"
+              View My Work
+            </button>
+            <button
+              onClick={() => navigate("/contact")}
+              className="text-[#fcfcfc] font-bold border-b border-white/10 hover:border-indigo-400 transition-all pb-0.5 text-sm"
             >
               Contact Me
-            </a>
-          </div> */}
-
-          {/* Info Cards */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { label: "📍 Location", value: "Pune, India" },
-              { label: "💼 Skills", value: "React, Java, JS" },
-              { label: "📧 Contact", value: "rohitgholap045@gmail.com" },
-            ].map((info, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-md"
-              >
-                <strong className="text-purple-300">{info.label}</strong>
-                <p className="text-gray-300 mt-1">{info.value}</p>
-              </motion.div>
-            ))}
+            </button>
           </div>
         </div>
 
-        {/* ------------ RIGHT SIDE PHOTO ------------- */}
-<div className="relative flex justify-center">
-  <img
-    src={photo}
-    alt="Rohit"
-    className="
-      w-40 h-40
-      sm:w-56 sm:h-56
-      md:w-72 md:h-72
-      lg:w-80 lg:h-80
-      rounded-full
-      border border-purple-400/30
-      object-cover
-      shadow-lg shadow-purple-500/20
-    "
-  />
-</div>
-
+        {/* ------------ RIGHT CONTENT: IMAGE ------------- */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="order-1 lg:order-2 flex justify-center lg:justify-end"
+        >
+          <div className="relative">
+            <div className="absolute -inset-4 border border-white/10 rounded-3xl rotate-2 -z-10 bg-white/5"></div>
+            <img
+              src={photo}
+              alt="Rohit"
+              className="
+                w-64 h-80
+                md:w-[320px] md:h-[420px]
+                rounded-3xl
+                object-cover
+                shadow-2xl shadow-indigo-500/10
+                filter grayscale hover:grayscale-0
+                transition-all duration-700
+              "
+            />
+          </div>
+        </motion.div>
       </section>
 
-      {/* ------------------- QUICK LINKS ------------------- */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold text-purple-400 mb-6">
-          Connect with Me
-        </h2>
-
-        <div className="flex justify-center flex-wrap gap-8">
-          {quickLinks.map((item, i) => (
-            <motion.a
-              key={i}
-              href={item.link}
-              target="_blank"
-              whileHover={{ scale: 1.15 }}
-              className="transition"
-            >
-              <img
-                src={item.img}
-                className="w-12 h-12 hover:drop-shadow-[0_0_20px_var(--tw-shadow-color)] shadow-purple-500 object-fit rounded-2xl"
-              />
-            </motion.a>
-          ))}
+      {/* ------------------- CONNECT SECTION ------------------- */}
+      <section className="max-w-7xl mx-auto px-8 py-16">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+          <div className="space-y-3">
+            <span className="text-indigo-400 font-bold tracking-widest text-[11px] uppercase">Stay in touch</span>
+            <h2 className="text-3xl font-['Playfair_Display'] font-bold text-[#fcfcfc] tracking-tight">Let's build something <br />together.</h2>
+          </div>
+          <div className="flex gap-3">
+            {quickLinks.map((item, i) => (
+              <motion.a
+                key={i}
+                href={item.link}
+                target="_blank"
+                whileHover={{ y: -3 }}
+                className="w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10 rounded-lg shadow-lg hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all"
+              >
+                <img
+                  src={item.img}
+                  className="w-4 h-4 object-contain invert opacity-60 hover:opacity-100 transition-opacity"
+                />
+              </motion.a>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="py-6 text-center text-gray-500 text-sm border-t border-gray-900">
-        © {new Date().getFullYear()} Rohit Gholap • All Rights Reserved
+      <footer className="py-12 border-t border-white/5 text-center">
+        <p className="text-white/20 text-[11px] font-medium tracking-widest uppercase">
+          © {new Date().getFullYear()} Rohit Gholap • Full Stack Developer
+        </p>
       </footer>
     </div>
   );

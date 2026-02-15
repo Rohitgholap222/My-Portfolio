@@ -18,7 +18,7 @@ const projects: Project[] = [
   {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
-    tech: ["Java", "postgreSQL", "Tailwind", "Spring Boot","React"],
+    tech: ["Java", "postgreSQL", "Tailwind", "Spring Boot", "React"],
     link: "https://github.com/",
   },
   {
@@ -43,65 +43,91 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc]">
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-12"
-        >
-          My <span className="text-purple-400">Projects</span>
-        </motion.h1>
+      <section className="max-w-7xl mx-auto px-8 pt-32 pb-20">
+        {/* HEADER */}
+        <div className="max-w-3xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-indigo-400 font-bold tracking-[0.2em] text-[11px] uppercase block mb-4"
+          >
+            Portfolio
+          </motion.span>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc] mb-6"
+          >
+            Selected <span className="italic text-indigo-400">projects</span> and works.
+          </motion.h1>
+        </div>
+
+        {/* PROJECTS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.25 }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-lg shadow-lg hover:border-purple-500/30"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group space-y-6"
             >
-              <h2 className="text-xl font-semibold text-purple-300">
-                {project.title}
-              </h2>
-
-              <p className="text-gray-300 mt-2 text-sm">
-                {project.description}
-              </p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 text-xs border border-purple-500/20 rounded-lg text-purple-300 bg-purple-500/10"
-                  >
-                    {t}
-                  </span>
-                ))}
+              {/* IMAGE CONTAINER */}
+              <div className="aspect-video bg-white/5 border border-white/5 rounded-3xl overflow-hidden relative">
+                <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/10 transition-colors duration-500"></div>
+                <div className="absolute inset-0 flex items-center justify-center p-12">
+                  <div className="text-white font-['Playfair_Display'] text-8xl font-bold opacity-5 select-none">0{index + 1}</div>
+                </div>
               </div>
 
-              {/* Link */}
-              <a
-                href={project.link}
-                target="_blank"
-                className="block mt-5 text-sm text-purple-400 hover:text-purple-300"
-              >
-                → View Project
-              </a>
+              {/* DETAILS */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-base text-white/50 leading-relaxed line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-[10px] font-bold text-white/30"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    className="inline-flex items-center gap-3 text-[#fcfcfc] font-bold group"
+                  >
+                    <span className="border-b border-white/10 group-hover:border-indigo-400 transition-all pb-0.5 uppercase tracking-widest text-[11px]">View Case Study</span>
+                    <span className="w-8 h-8 flex items-center justify-center bg-white text-black rounded-full group-hover:bg-indigo-500 group-hover:text-white transition-colors text-xs">→</span>
+                  </a>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="py-6 text-center text-gray-500 text-sm border-t border-gray-900">
-        © {new Date().getFullYear()} Rohit Gholap • All Rights Reserved
+      <footer className="py-16 bg-[#0a0a0a] border-t border-white/5 mt-20">
+        <div className="max-w-7xl mx-auto px-8 flex flex-col items-center text-center space-y-6">
+          <h3 className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc]">Let's discuss your next project</h3>
+          <a href="mailto:rohitgholap045@gmail.com" className="text-base font-bold text-indigo-400 border-b border-indigo-500/20 hover:border-indigo-400 transition-all pb-1 uppercase tracking-widest">rohitgholap045@gmail.com</a>
+        </div>
       </footer>
     </div>
   );

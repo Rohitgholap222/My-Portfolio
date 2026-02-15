@@ -1,6 +1,6 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { name: "Home", to: "/" },
@@ -10,7 +10,6 @@ const links = [
   { name: "Resume", to: "/resume" },
   { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
-  
 ];
 
 export default function Navbar() {
@@ -18,19 +17,19 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Navbar Container */}
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/40 border-b border-white/10 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
 
           {/* Logo */}
-          <motion.div
-            className="text-2xl font-bold text-indigo-400"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          >
-          
-          </motion.div>
+          <NavLink to="/">
+            <motion.div
+              className="text-xl font-bold font-['Playfair_Display'] text-[#fcfcfc] tracking-tighter"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+            >
+              RG<span className="text-indigo-500">.</span>
+            </motion.div>
+          </NavLink>
 
           {/* Desktop Links */}
           <div className="hidden md:flex gap-8">
@@ -39,8 +38,8 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-all duration-300 
-                  ${isActive ? "text-indigo-400" : "text-white hover:text-indigo-300"}`
+                  `text-[11px] uppercase tracking-[0.25em] font-black transition-all duration-500 
+                  ${isActive ? "text-indigo-400" : "text-white/30 hover:text-indigo-300"}`
                 }
               >
                 {link.name}
@@ -48,12 +47,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Hamburger Icon */}
           <button
-            className="md:hidden text-3xl text-white"
+            className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 group"
             onClick={() => setOpen(!open)}
           >
-            {open ? "✕" : "☰"}
+            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 rotate-45 translate-y-2' : 'w-6'}`}></span>
+            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'opacity-0' : 'w-4'}`}></span>
+            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`}></span>
           </button>
         </div>
       </nav>
@@ -62,16 +63,22 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-0 left-0 w-full h-screen bg-black/90 backdrop-blur-xl flex flex-col items-center pt-28 space-y-6 z-40 md:hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-0 h-screen bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 z-[60] md:hidden"
           >
+            <button
+              className="absolute top-8 right-8 text-3xl text-[#fcfcfc]"
+              onClick={() => setOpen(false)}
+            >
+              ✕
+            </button>
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="text-white text-lg font-medium"
+                className="text-[#fcfcfc] text-3xl font-bold font-['Playfair_Display'] hover:text-indigo-400 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {link.name}

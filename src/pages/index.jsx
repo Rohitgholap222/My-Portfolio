@@ -1,21 +1,15 @@
-import Home from "./home/Home";
-import Projects from "./home/Projects";
-import Skills from "./home/Skills";
 import About from "./home/About";
-import Contact from "./home/Contact";
-import NotFound from "./home/NotFound";
-import Resume from "./home/Resume";
 import Certificates from "./home/Certificates";
+import Contact from "./home/Contact";
+import Home from "./home/Home";
+import NotFound from "./home/NotFound";
+import Projects from "./home/Projects";
+import Resume from "./home/Resume";
+import Skills from "./home/Skills";
 
 
 
 export {
-    Home,
-    Projects,
-    Skills,
-    About,
-    Contact,
-    NotFound,
-    Resume,
-    Certificates
+    About, Certificates, Contact, Home, NotFound, Projects, Resume, Skills
 };
+
