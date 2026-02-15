@@ -4,10 +4,16 @@ import Navbar from "../../components/Navbar";
 export default function About() {
   const experiences = [
     {
-      role: "ERP Development Intern",
+      role: "Full Stack Developer (Intern)",
       org: "JSPM JSCOE",
       period: "SEP 2024 – PRESENT",
-      desc: "Developing enterprise systems using React & Spring Boot."
+      desc: "Architecting and implementing enterprise-scale modules for college management systems (ERP).",
+      details: [
+        "Developing responsive user interfaces using React.js and Tailwind CSS.",
+        "Building robust RESTful APIs and backend logic with Spring Boot and PostgreSQL.",
+        "Collaborating on system architecture to ensure scalability and high performance.",
+        "Optimizing database queries and improving frontend load times by 30%."
+      ]
     }
   ];
 
@@ -39,7 +45,7 @@ export default function About() {
             className="flex items-center gap-2"
           >
             <div className="w-6 h-[1px] bg-indigo-500/50"></div>
-            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[9px] uppercase">
+            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
               Profile
             </span>
           </motion.div>
@@ -63,29 +69,41 @@ export default function About() {
         </div>
 
         {/* CONTENT GRID - Optimized flow */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
           {/* Main Info */}
           <div className="lg:col-span-8 space-y-12">
 
             {/* EXPERIENCE */}
             <div className="space-y-6">
-              <h3 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Work</h3>
-              <div className="space-y-6">
+              <h3 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Professional Experience</h3>
+              <div className="space-y-10">
                 {experiences.map((exp, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="border-l border-white/5 pl-5 hover:border-indigo-500 transition-colors"
+                    className="border-l border-white/5 pl-6 hover:border-indigo-500 transition-colors"
                   >
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-lg font-bold font-['Playfair_Display'] text-[#fcfcfc]">{exp.role}</h4>
-                      <span className="text-[8px] font-bold tracking-widest text-indigo-400 uppercase">{exp.period}</span>
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h4 className="text-xl font-bold font-['Playfair_Display'] text-[#fcfcfc]">{exp.role}</h4>
+                        <p className="text-sm text-indigo-400 font-medium">{exp.org}</p>
+                      </div>
+                      <span className="text-[9px] font-bold tracking-widest text-[#fcfcfc]/30 uppercase pt-1">{exp.period}</span>
                     </div>
-                    <p className="text-sm text-white/40 mb-1">{exp.org}</p>
-                    <p className="text-[12px] text-white/20 max-w-2xl">{exp.desc}</p>
+
+                    <p className="text-[13px] text-white/60 mb-4 leading-relaxed italic">{exp.desc}</p>
+
+                    <ul className="space-y-2.5">
+                      {exp.details.map((detail, index) => (
+                        <li key={index} className="flex items-start gap-3 group/item">
+                          <span className="w-1 h-1 rounded-full bg-indigo-500/50 mt-2 shrink-0 group-hover/item:bg-indigo-400"></span>
+                          <p className="text-[12px] text-white/40 leading-relaxed group-hover/item:text-white/60 transition-colors">{detail}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </motion.div>
                 ))}
               </div>
@@ -93,7 +111,7 @@ export default function About() {
 
             {/* EDUCATION */}
             <div className="space-y-6">
-              <h3 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Academic</h3>
+              <h3 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Academic Background</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {education.map((item, i) => (
                   <motion.div
