@@ -6,68 +6,62 @@ export default function Resume() {
     <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
       <Navbar />
 
-      <section className="max-w-7xl mx-auto px-8 pt-32 pb-20">
-        {/* HEADER */}
-        <div className="max-w-3xl mb-12 space-y-4">
+      <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
+        {/* HEADER - Compact */}
+        <div className="max-w-3xl mb-8 space-y-2">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2"
           >
-            <div className="w-8 h-[1px] bg-indigo-500/50"></div>
-            <span className="text-indigo-400 font-bold tracking-[0.2em] text-[10px] uppercase block underline decoration-indigo-500/30 underline-offset-4">
-              Curriculum Vitae
+            <div className="w-6 h-[1px] bg-indigo-500/50"></div>
+            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
+              Resume
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
+            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
           >
-            Professional <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">trajectory</span> and record.
+            Professional <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Trajectory</span>.
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-wrap gap-6 items-center pt-4"
-          >
-            <p className="text-base text-white/50 max-w-xl leading-relaxed">
-              Academic background and professional milestones.
+          <div className="flex flex-wrap gap-4 items-center pt-2">
+            <p className="text-sm text-white/50 max-w-sm leading-relaxed">
+              Curriculum vitae and academic records.
             </p>
             <motion.a
               href="/Rohit-Resume.pdf"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-white text-black rounded-xl font-bold text-[11px] uppercase tracking-widest shadow-lg hover:bg-indigo-500 hover:text-white transition-all"
+              className="px-5 py-2.5 bg-white text-black rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-indigo-500 hover:text-white transition-all shadow-sm"
             >
-              Download PDF
+              PDF
             </motion.a>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Embedded Viewer - More Compact */}
+        {/* Embedded Viewer - Optimized height */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={{ opacity: 0, scale: 0.99 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
-          className="w-full h-[75vh] rounded-2xl overflow-hidden shadow-2xl bg-white/5 border border-white/5"
+          className="w-full h-[60vh] rounded-xl overflow-hidden shadow-xl bg-white/5 border border-white/5"
         >
           <iframe
             src="/Rohit-Resume.pdf"
-            className="w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-            title="Resume Preview"
+            className="w-full h-full opacity-80"
+            title="Resume"
           ></iframe>
         </motion.div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-12 border-t border-white/5 text-center">
-        <p className="text-white/20 text-[11px] font-medium tracking-widest uppercase">
-          © {new Date().getFullYear()} Rohit Gholap • Structured Excellence
+      {/* FOOTER - Compact */}
+      <footer className="py-8 border-t border-white/5 text-center">
+        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
+          © {new Date().getFullYear()} Rohit Gholap
         </p>
       </footer>
     </div>

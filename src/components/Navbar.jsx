@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -14,16 +14,21 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Handle scroll detection and hide/show on scroll direction
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+    setScrolled(latest > 20);
+  });
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -32,27 +37,33 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
-            ? "bg-[#0a0a0a]/80 backdrop-blur-2xl border-b border-white/5 py-3 shadow-2xl shadow-indigo-500/5"
-            : "bg-transparent py-6"
+      <motion.nav
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${scrolled
+            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-lg"
+            : "bg-transparent"
           }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
 
-          {/* Logo with animation */}
+          {/* Logo */}
           <NavLink to="/">
             <motion.div
               className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc] tracking-tighter cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              RG<span className="text-indigo-400">.</span>
+              RG<span className="text-indigo-500">.</span>
             </motion.div>
           </NavLink>
 
-          {/* Desktop Links with hover glow */}
-          <div className="hidden md:flex gap-10">
+          {/* Desktop Links */}
+          <div className="hidden md:flex gap-8">
             {links.map((link) => (
               <NavLink
                 key={link.to}
@@ -79,19 +90,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Hamburger Icon */}
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 focus:outline-none z-[70]"
+          <button
+            className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none z-[70]"
             onClick={() => setOpen(!open)}
           >
             <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 rotate-45 translate-y-2' : 'w-6'}`}></span>
             <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'opacity-0' : 'w-4'}`}></span>
             <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`}></span>
-          </motion.button>
+          </button>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Mobile Menu with Framer Motion */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div

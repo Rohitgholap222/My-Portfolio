@@ -65,90 +65,83 @@ export default function Projects() {
     <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
       <Navbar />
 
-      <section className="max-w-7xl mx-auto px-8 pt-32 pb-20">
+      <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
         {/* HEADER - Reduced Size */}
-        <div className="max-w-3xl mb-12 space-y-4">
+        <div className="max-w-3xl mb-8 space-y-2">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2"
           >
-            <div className="w-8 h-[1px] bg-indigo-500/50"></div>
-            <span className="text-indigo-400 font-bold tracking-[0.2em] text-[10px] uppercase block">
-              Portfolio
+            <div className="w-6 h-[1px] bg-indigo-500/50"></div>
+            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[9px] uppercase">
+              Selected Work
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
+            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
           >
-            Selected <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">projects</span> and works.
+            Key <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Projects</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-base text-white/40 max-w-xl leading-relaxed font-normal"
-          >
-            A curated selection of technical projects and digital experiments.
-          </motion.p>
         </div>
 
-        {/* PROJECTS GRID - More Compact */}
+        {/* PROJECTS GRID - More Compact 3-column on large screens */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              className="group space-y-4"
+              className="group space-y-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:border-indigo-500/30 transition-all shadow-sm"
             >
-              {/* IMAGE CONTAINER */}
-              <div className="aspect-video bg-white/5 border border-white/5 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-indigo-500/0 group-hover:bg-indigo-500/10 transition-colors duration-500"></div>
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div className="text-white font-['Playfair_Display'] text-6xl font-bold opacity-5 select-none italic">
+              {/* IMAGE CONTAINER - Smaller height */}
+              <div className="aspect-video bg-white/5 rounded-lg overflow-hidden relative mb-2">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-white font-['Playfair_Display'] text-4xl font-bold opacity-5 italic">
                     0{index + 1}
-                  </div>
+                  </span>
                 </div>
               </div>
 
               {/* DETAILS */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-white/50 leading-relaxed font-normal line-clamp-2">
+                <p className="text-xs text-white/40 leading-relaxed font-normal line-clamp-2">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, i) => (
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.tech.slice(0, 3).map((t, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-1 bg-white/5 border border-white/5 rounded-lg text-[9px] font-bold text-white/30 uppercase tracking-widest"
+                      className="px-2 py-0.5 bg-white/5 rounded-md text-[8px] font-bold text-white/20 uppercase"
                     >
                       {t}
                     </span>
                   ))}
+                  {project.tech.length > 3 && (
+                    <span className="text-[8px] text-white/10 font-bold">+{project.tech.length - 3}</span>
+                  )}
                 </div>
 
                 <div className="pt-2">
-                  <motion.a
+                  <a
                     href={project.link}
                     target="_blank"
-                    className="inline-flex items-center gap-2 text-white/80 font-bold text-[11px] uppercase tracking-widest border-b border-white/5 hover:border-indigo-400 hover:text-indigo-400 transition-all"
+                    className="inline-flex items-center gap-1.5 text-white/60 font-bold text-[9px] uppercase tracking-widest hover:text-indigo-400 transition-all"
                   >
-                    View Project →
-                  </motion.a>
+                    Details →
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -156,10 +149,10 @@ export default function Projects() {
         </motion.div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-12 border-t border-white/5 text-center">
-        <p className="text-white/20 text-[11px] font-medium tracking-widest uppercase">
-          © {new Date().getFullYear()} Rohit Gholap • Full Stack Developer
+      {/* FOOTER - Compact */}
+      <footer className="py-8 border-t border-white/5 text-center">
+        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
+          © {new Date().getFullYear()} Rohit Gholap
         </p>
       </footer>
     </div>
