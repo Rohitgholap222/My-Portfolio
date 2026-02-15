@@ -133,8 +133,8 @@ export default function Contact() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 className={`w-full py-3.5 rounded-lg font-bold uppercase tracking-widest text-[10px] transition-all ${submitted
-                    ? "bg-green-500 text-white"
-                    : "bg-white text-black hover:bg-indigo-500 hover:text-white"
+                  ? "bg-green-500 text-white"
+                  : "bg-white text-black hover:bg-indigo-500 hover:text-white"
                   }`}
               >
                 {submitted ? "Sent" : "Send"}
