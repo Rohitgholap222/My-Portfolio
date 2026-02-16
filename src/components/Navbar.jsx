@@ -58,7 +58,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              RG<span className="text-indigo-500">.</span>
+              Rohit<span className="text-indigo-500"> Gholap</span>
             </motion.div>
           </NavLink>
 

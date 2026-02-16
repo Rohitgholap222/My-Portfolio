@@ -25,7 +25,7 @@ export default function Resume() {
             animate={{ opacity: 1, y: 0 }}
             className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
           >
-            Professional <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Trajectory</span>.
+            My <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Resume</span>.
           </motion.h1>
 
           <div className="flex flex-wrap gap-4 items-center pt-2">

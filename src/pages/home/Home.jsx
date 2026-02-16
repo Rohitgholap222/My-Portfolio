@@ -77,8 +77,8 @@ export default function Home() {
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold leading-tight text-[#fcfcfc] tracking-tight"
             >
-              Full-stack <br />
-              <span className="italic text-indigo-400">developer</span>.
+              Full-stack 
+              <span className="italic text-indigo-400"> developer</span>.
             </motion.h1>
 
             <motion.p
@@ -133,7 +133,7 @@ export default function Home() {
           className="order-1 lg:order-2 flex justify-center lg:justify-end"
         >
           <div className="relative group">
-            <div className="absolute -inset-2 border border-indigo-500/10 rounded-2xl rotate-2 -z-10 bg-indigo-500/5"></div>
+            <div className="absolute -inset-2 border border-indigo-800/10 rounded-2xl rotate-2 -z-10 bg-indigo-800/5"></div>
             <img
               src={photo}
               alt="Rohit"
@@ -142,7 +142,7 @@ export default function Home() {
                 md:w-64 md:h-80
                 rounded-2xl
                 object-cover
-                shadow-xl grayscale group-hover:grayscale-0
+                shadow-xl group-hover:grayscale-0
                 transition-all duration-500
               "
             />
