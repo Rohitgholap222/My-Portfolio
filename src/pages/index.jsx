@@ -6,9 +6,10 @@ import NotFound from "./home/NotFound";
 import Projects from "./home/Projects";
 import Resume from "./home/Resume";
 import Skills from "./home/Skills";
+import RootLayout from "./RootLayout";
 import UnifiedLayout from "./UnifiedLayout";
 
 export {
-    About, Certificates, Contact, Home, NotFound, Projects, Resume, Skills, UnifiedLayout
+    About, Certificates, Contact, Home, NotFound, Projects, Resume, RootLayout, Skills, UnifiedLayout
 };
 

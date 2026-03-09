@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
 
 export default function About() {
   const experiences = [
@@ -39,10 +38,8 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
-      <Navbar />
-
-      <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
+    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
+      <section className="max-w-6xl mx-auto px-8 py-12">
         {/* HEADER - Compact */}
         <div className="max-w-3xl mb-10 space-y-2">
           <motion.div
@@ -50,7 +47,7 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <div className="w-6 h-[1px] bg-indigo-500"></div>
+            <div className="w-6 h-px bg-indigo-500"></div>
             <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
               Profile
             </span>
@@ -119,7 +116,7 @@ export default function About() {
         </div>
       </section>
 
-  
+
     </div>
   );
 }

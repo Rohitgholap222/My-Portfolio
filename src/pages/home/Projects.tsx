@@ -1,44 +1,48 @@
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
 
 interface Project {
   title: string;
   description: string;
   tech: string[];
   link: string;
+  image: string;
 }
 
 const projects: Project[] = [
-
   {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
     tech: ["Java", "PostgreSQL", "Tailwind", "Spring Boot", "React"],
     link: "https://github.com/",
+    image: "/project/ERP.png",
   },
   {
-    title: "BigMart E-commerce",
-    description: "Full-feature E-commerce web application with product management and recommendations.",
-    tech: ["Java", "Spring Boot", "React", "MySQL"],
-    link: "https://github.com/Rohitgholap222/BigMart-Web",
+    title: "Increda Billing Management System",
+    description: "Full-stack billing management system for small businesses.",
+    tech: ["Java", "MySQL", "AWT/Swing"],
+    link: "https://github.com/",
+    image: "/project/incredabill.png",
   },
   {
     title: "Meal-Mitra AI",
     description: "AI-powered meal recommendation system.",
     tech: ["Python", "Machine Learning", "React"],
-    link: "#",
+    link: "https://meal-mitra-pi.vercel.app/",
+    image: "/project/mealmitra.png",
   },
   {
     title: "Modern Portfolio",
     description: "Editorial-style personal portfolio built using React, Tailwind, and Framer Motion.",
     tech: ["React", "Tailwind", "Framer Motion"],
     link: "https://github.com/Rohitgholap222/My-Portfolio",
+    image: "/project/portfolio.png",
   },
   {
     title: "Bookito",
     description: "Smart book recommendation system that learns from user reading history and preferences.",
     tech: ["Python", "Flask", "Machine Learning"],
     link: "https://github.com/Rohitgholap222/Bookito-Python-Project",
+    image: "/project/bookito.png",
   },
 ];
 
@@ -63,10 +67,8 @@ const cardVariants = {
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
-      <Navbar />
-
-      <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
+    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
+      <section className="max-w-6xl mx-auto px-8 py-12">
         {/* HEADER - Reduced Size */}
         <div className="max-w-3xl mb-8 space-y-2">
           <motion.div
@@ -74,7 +76,7 @@ export default function Projects() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <div className="w-6 h-[1px] bg-indigo-500/50"></div>
+            <div className="w-6 h-px bg-indigo-500/50"></div>
             <span className="text-indigo-400 font-bold tracking-[0.15em] text-[9px] uppercase">
               Selected Work
             </span>
@@ -101,14 +103,18 @@ export default function Projects() {
             <motion.div
               key={index}
               variants={cardVariants}
+              whileHover={{ y: -5 }}
               className="group space-y-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:border-indigo-500/30 transition-all shadow-sm"
             >
               {/* IMAGE CONTAINER - Smaller height */}
-              <div className="aspect-video bg-white/5 rounded-lg overflow-hidden relative mb-2">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-white font-['Playfair_Display'] text-4xl font-bold opacity-5 italic">
-                    0{index + 1}
-                  </span>
+              <div className="aspect-video bg-white/5 rounded-lg overflow-hidden relative mb-2 group">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                  <span className="text-[10px] text-white font-bold uppercase tracking-widest">{project.title}</span>
                 </div>
               </div>
 
@@ -149,8 +155,6 @@ export default function Projects() {
           ))}
         </motion.div>
       </section>
-
-
     </div>
   );
 }

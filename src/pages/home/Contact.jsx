@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Navbar from "../../components/Navbar";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -18,10 +17,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
-      <Navbar />
-
-      <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
+    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
+      <section className="max-w-6xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* LEFT SIDE: Header and Info - Compact */}
@@ -32,7 +29,7 @@ export default function Contact() {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-2"
               >
-                <div className="w-6 h-[1px] bg-indigo-500/50"></div>
+                <div className="w-6 h-px bg-indigo-500/50"></div>
                 <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase block">
                   Connect
                 </span>

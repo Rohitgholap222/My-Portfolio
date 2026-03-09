@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { About, Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -72,12 +71,10 @@ export default function UnifiedLayout() {
         <div ref={containerRef} className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white pb-20 overflow-x-hidden">
             {/* Scroll Progress Bar */}
             <div
-                className="fixed top-0 left-0 h-1 bg-indigo-500 z-[100] transition-all duration-100 ease-out"
+                className="fixed top-0 left-0 h-1 bg-indigo-500 z-50"
                 id="scroll-progress"
                 style={{ width: "0%" }}
             />
-
-            <Navbar />
 
             <div id="home" className="reveal-section">
                 <Home />

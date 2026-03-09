@@ -97,7 +97,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger Icon */}
           <button
-            className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none z-[70]"
+            className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none z-70"
             onClick={() => setOpen(!open)}
           >
             <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 rotate-45 translate-y-2' : 'w-6'}`}></span>
@@ -115,7 +115,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 h-screen bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 z-[60] md:hidden"
+            className="fixed inset-0 h-screen bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 z-60 md:hidden"
           >
             {links.map((link, i) => (
               <motion.div

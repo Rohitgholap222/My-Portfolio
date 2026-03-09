@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import facebook from "/facebook.png";
 import github from "/github.png";
 import gmail from "/gmail.png";
@@ -56,9 +55,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white overflow-hidden">
-      <Navbar />
-
+    <div className="w-full bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white">
       {/* Background Decorative Element */}
       <div className="fixed inset-0 pointer-events-none opacity-50">
         <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-indigo-500/5 rounded-full blur-[80px]"></div>
