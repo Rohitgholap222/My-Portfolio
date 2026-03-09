@@ -1,36 +1,109 @@
 import Navbar from "@/components/Navbar";
 import { About, Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function UnifiedLayout() {
+    const containerRef = useRef();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            const id = location.state.scrollTo;
+            // Delay slightly to ensure content is rendered
+            setTimeout(() => {
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: { y: `#${id}`, offsetY: 80 },
+                    ease: "power4.inOut",
+                });
+            }, 100);
+        }
+    }, [location]);
+
+    useGSAP(() => {
+        // Scroll Progress Bar Animation
+        gsap.to("#scroll-progress", {
+            width: "100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 0.3,
+            }
+        });
+
+        const sections = gsap.utils.toArray(".reveal-section");
+
+        sections.forEach((section) => {
+            gsap.fromTo(section,
+                {
+                    opacity: 0,
+                    y: 50,
+                    filter: "blur(10px)"
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%", // when the top of the element hits 85% of the viewport height
+                        end: "top 50%",
+                        toggleActions: "play none none reverse", // play on enter, reverse on leave-back
+                    }
+                }
+            );
+        });
+
+        // Horizontal scrolling for projects or skill categories if needed
+        // For now, focusing on basic vertical reveal
+    }, { scope: containerRef });
+
     return (
-        <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white pb-20">
+        <div ref={containerRef} className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white pb-20 overflow-x-hidden">
+            {/* Scroll Progress Bar */}
+            <div
+                className="fixed top-0 left-0 h-1 bg-indigo-500 z-[100] transition-all duration-100 ease-out"
+                id="scroll-progress"
+                style={{ width: "0%" }}
+            />
+
             <Navbar />
 
-            <div id="home">
+            <div id="home" className="reveal-section">
                 <Home />
             </div>
 
-            <div id="about">
+            <div id="about" className="reveal-section">
                 <About />
             </div>
 
-            <div id="skills">
+            <div id="skills" className="reveal-section">
                 <Skills />
             </div>
 
-            <div id="projects">
+            <div id="projects" className="reveal-section">
                 <Projects />
             </div>
 
-            <div id="certificates">
+            <div id="certificates" className="reveal-section">
                 <Certificates />
             </div>
 
-            <div id="resume">
+            <div id="resume" className="reveal-section">
                 <Resume />
             </div>
 
-            <div id="contact">
+            <div id="contact" className="reveal-section">
                 <Contact />
             </div>
 

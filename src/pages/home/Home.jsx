@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import facebook from "/facebook.png";
@@ -46,6 +47,14 @@ export default function Home() {
     },
   };
 
+  const scrollToSection = (id) => {
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: { y: `#${id}`, offsetY: 80 },
+      ease: "power4.inOut",
+    });
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white overflow-hidden">
       <Navbar />
@@ -77,7 +86,7 @@ export default function Home() {
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold leading-tight text-[#fcfcfc] tracking-tight"
             >
-              Full-stack 
+              Full-stack
               <span className="italic text-indigo-400"> developer</span>.
             </motion.h1>
 
@@ -111,13 +120,13 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/projects")}
+              onClick={() => scrollToSection("projects")}
               className="px-6 py-3 bg-white text-black rounded-lg font-bold shadow-lg hover:bg-indigo-500 hover:text-white transition-all text-[11px] uppercase tracking-widest"
             >
               Projects
             </motion.button>
             <motion.button
-              onClick={() => navigate("/contact")}
+              onClick={() => scrollToSection("contact")}
               className="text-[#fcfcfc] font-bold border-b border-white/10 hover:border-indigo-400 transition-all pb-0.5 text-[11px] uppercase tracking-widest"
             >
               Contact
@@ -163,24 +172,24 @@ export default function Home() {
             <h2 className="text-2xl font-['Playfair_Display'] font-bold text-[#fcfcfc]">Let's build together.</h2>
           </div>
 
-          
+
         </div>
         <div className="flex gap-3">
-            {quickLinks.map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.link}
-                target="_blank"
-                whileHover={{ y: -3 }}
-                className="w-9 h-9 flex items-center justify-center bg-white/5 border border-white/5 rounded-lg shadow-md hover:border-indigo-500/50 transition-all"
-              >
-                <img src={item.img} alt={item.title} className="w-4 h-4 invert opacity-40 hover:opacity-100 transition-opacity" />
-              </motion.a>
-            ))}
-          </div>
+          {quickLinks.map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.link}
+              target="_blank"
+              whileHover={{ y: -3 }}
+              className="w-9 h-9 flex items-center justify-center bg-white/5 border border-white/5 rounded-lg shadow-md hover:border-indigo-500/50 transition-all"
+            >
+              <img src={item.img} alt={item.title} className="w-4 h-4 invert opacity-40 hover:opacity-100 transition-opacity" />
+            </motion.a>
+          ))}
+        </div>
       </motion.section>
 
-      
+
     </div>
   );
 }

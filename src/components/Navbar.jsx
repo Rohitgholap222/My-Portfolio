@@ -1,15 +1,19 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const links = [
-  { name: "Home", to: "/" },
-  { name: "Projects", to: "/projects" },
-  { name: "Skills", to: "/skills" },
-  { name: "Certificates", to: "/certificates" },
-  { name: "Resume", to: "/resume" },
-  { name: "About", to: "/about" },
-  { name: "Contact", to: "/contact" },
+  { name: "Home", to: "home" },
+  { name: "Projects", to: "projects" },
+  { name: "Skills", to: "skills" },
+  { name: "Certificates", to: "certificates" },
+  { name: "Resume", to: "resume" },
+  { name: "About", to: "about" },
+  { name: "Contact", to: "contact" },
 ];
 
 export default function Navbar() {
@@ -18,6 +22,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle scroll detection and hide/show on scroll direction
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -29,6 +34,19 @@ export default function Navbar() {
     }
     setScrolled(latest > 20);
   });
+
+  const scrollToSection = (id) => {
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: { y: `#${id}`, offsetY: 80 },
+        ease: "power4.inOut",
+      });
+    }
+  };
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -44,48 +62,36 @@ export default function Navbar() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${scrolled
-            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-lg"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-100 transition-colors duration-500 ${scrolled
+          ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-lg"
+          : "bg-transparent"
           }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
 
           {/* Logo */}
-          <NavLink to="/">
+          <div
+            onClick={() => scrollToSection("home")}
+            className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc] tracking-tighter cursor-pointer group"
+          >
             <motion.div
-              className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc] tracking-tighter cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Rohit<span className="text-indigo-500"> Gholap</span>
+              Rohit<span className="text-indigo-500 group-hover:text-indigo-400 transition-colors"> Gholap</span>
             </motion.div>
-          </NavLink>
+          </div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex gap-8">
             {links.map((link) => (
-              <NavLink
+              <button
                 key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `relative text-[11px] uppercase tracking-[0.25em] font-black transition-all duration-500 
-                  ${isActive ? "text-indigo-400" : "text-white/30 hover:text-white"}`
-                }
+                onClick={() => scrollToSection(link.to)}
+                className="relative text-[11px] uppercase tracking-[0.25em] font-black transition-all duration-500 text-white/30 hover:text-white"
               >
-                {({ isActive }) => (
-                  <>
-                    {link.name}
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-underline"
-                        className="absolute -bottom-2 left-0 w-full h-0.5 bg-indigo-500 rounded-full"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </>
-                )}
-              </NavLink>
+                {link.name}
+              </button>
             ))}
           </div>
 
@@ -118,15 +124,12 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i }}
               >
-                <NavLink
-                  to={link.to}
-                  className={({ isActive }) =>
-                    `text-4xl font-bold font-['Playfair_Display'] transition-colors ${isActive ? "text-indigo-400" : "text-[#fcfcfc] hover:text-indigo-300"
-                    }`
-                  }
+                <button
+                  onClick={() => scrollToSection(link.to)}
+                  className="text-4xl font-bold font-['Playfair_Display'] text-[#fcfcfc] hover:text-indigo-400 transition-colors"
                 >
                   {link.name}
-                </NavLink>
+                </button>
               </motion.div>
             ))}
           </motion.div>

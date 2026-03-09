@@ -1,5 +1,11 @@
+import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Navbar from "../../components/Navbar";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   {
@@ -8,7 +14,7 @@ const categories = [
   },
   {
     title: "Backend Core",
-    skills: ["Spring Boot",  "REST APIs", "Java", "Python"]
+    skills: ["Spring Boot", "REST APIs", "Java", "Python"]
   },
   {
     title: "Database ",
@@ -20,28 +26,29 @@ const categories = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.4 }
-  }
-};
-
 export default function Skills() {
+  const containerRef = useRef();
+
+  useGSAP(() => {
+    const cards = gsap.utils.toArray(".skill-card");
+
+    cards.forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        x: i % 2 === 0 ? -50 : 50,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        }
+      });
+    });
+  }, { scope: containerRef });
+
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
+    <div ref={containerRef} className="min-h-screen bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
       <Navbar />
 
       <section className="max-w-6xl mx-auto px-8 pt-24 pb-12">
@@ -57,27 +64,15 @@ export default function Skills() {
               Skills
             </span>
           </motion.div>
-
-          
         </div>
 
         {/* SKILLS GRID - Tighter layout */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {categories.map((category, idx) => (
-            <motion.div
+            <div
               key={idx}
-              variants={itemVariants}
-              whileHover={{ y: -3 }}
-              className="bg-white/5 p-6 rounded-xl border border-white/5 relative group transition-all"
+              className="skill-card bg-white/5 p-6 rounded-xl border border-white/5 relative group transition-all"
             >
-
-
               <div className="space-y-4">
                 <h3 className="text-lg font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
                   {category.title}
@@ -93,12 +88,10 @@ export default function Skills() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </section>
-
-
     </div>
   );
 }
