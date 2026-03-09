@@ -44,7 +44,7 @@ const itemVariants = {
 
 export default function Certificates() {
   return (
-    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
+    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
       <section className="max-w-6xl mx-auto px-8 py-12">
         {/* HEADER - Compact */}
         <div className="max-w-3xl mb-8 space-y-2">

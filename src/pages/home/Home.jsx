@@ -55,12 +55,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white">
-      {/* Background Decorative Element */}
-      <div className="fixed inset-0 pointer-events-none opacity-50">
-        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-indigo-500/5 rounded-full blur-[80px]"></div>
-      </div>
-
+    <div className="w-full bg-transparent text-[#fcfcfc] selection:bg-indigo-500 selection:text-white">
       {/* ------------------- HERO SECTION - More Compact ------------------- */}
       <motion.section
         variants={containerVariants}

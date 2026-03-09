@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
+    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
       <section className="max-w-6xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 

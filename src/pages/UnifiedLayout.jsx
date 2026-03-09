@@ -68,44 +68,47 @@ export default function UnifiedLayout() {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 selection:text-white pb-20 overflow-x-hidden">
+        <div ref={containerRef} className="pb-20 relative overflow-x-hidden">
             {/* Scroll Progress Bar */}
             <div
-                className="fixed top-0 left-0 h-1 bg-indigo-500 z-50"
+                className="fixed top-0 left-0 h-1 bg-indigo-500 z-50 transition-all duration-100 ease-out"
                 id="scroll-progress"
                 style={{ width: "0%" }}
             />
 
-            <div id="home" className="reveal-section">
-                <Home />
-            </div>
+            <div className="relative z-10 space-y-48">
+                {/* Each section now has a minimum height and padding to feel distinct */}
+                <div id="home" className="reveal-section min-h-[90vh] flex items-center pt-20">
+                    <Home />
+                </div>
 
-            <div id="about" className="reveal-section">
-                <About />
-            </div>
+                <div id="about" className="reveal-section pt-24 min-h-[60vh]">
+                    <About />
+                </div>
 
-            <div id="skills" className="reveal-section">
-                <Skills />
-            </div>
+                <div id="skills" className="reveal-section pt-24 min-h-[60vh]">
+                    <Skills />
+                </div>
 
-            <div id="projects" className="reveal-section">
-                <Projects />
-            </div>
+                <div id="projects" className="reveal-section pt-24 min-h-[80vh]">
+                    <Projects />
+                </div>
 
-            <div id="certificates" className="reveal-section">
-                <Certificates />
-            </div>
+                <div id="certificates" className="reveal-section pt-24 min-h-[60vh]">
+                    <Certificates />
+                </div>
 
-            <div id="resume" className="reveal-section">
-                <Resume />
-            </div>
+                <div id="resume" className="reveal-section pt-24 min-h-[80vh]">
+                    <Resume />
+                </div>
 
-            <div id="contact" className="reveal-section">
-                <Contact />
+                <div id="contact" className="reveal-section pt-24 pb-24 min-h-[80vh]">
+                    <Contact />
+                </div>
             </div>
 
             {/* Simplified Footer */}
-            <footer className="py-12 border-t border-white/5 text-center mt-20">
+            <footer className="py-12 border-t border-white/5 text-center mt-32 relative z-10">
                 <p className="text-white/20 text-[11px] font-medium tracking-widest uppercase">
                     © {new Date().getFullYear()} Rohit Gholap • Full Stack Developer
                 </p>

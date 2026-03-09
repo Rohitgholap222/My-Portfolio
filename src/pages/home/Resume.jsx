@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Resume() {
   return (
-    <div className="bg-[#0a0a0a] text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
+    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
       <section className="max-w-6xl mx-auto px-8 py-12">
         {/* HEADER - Compact */}
         <div className="max-w-3xl mb-8 space-y-2">
