@@ -1,19 +1,45 @@
+import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Contact() {
+  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setLoading(true);
+    setSuccessMsg("");
+    setErrorMsg("");
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE,
+        import.meta.env.VITE_EMAIL_TEMPLATE,
+        formRef.current,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          setLoading(false);
+          setSuccessMsg("Message sent successfully!");
+          setForm({ name: "", email: "", message: "" });
+          setTimeout(() => setSuccessMsg(""), 5000);
+        },
+        (error) => {
+          setLoading(false);
+          setErrorMsg("Failed to send the message. Please try again.");
+          setTimeout(() => setErrorMsg(""), 5000);
+        }
+      );
   };
 
   return (
@@ -88,13 +114,14 @@ export default function Contact() {
             animate={{ opacity: 1, scale: 1 }}
             className="lg:col-span-7 bg-white/5 border border-white/5 p-6 md:p-10 rounded-xl"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-1.5">
                   <label className="text-[9px] font-bold uppercase tracking-widest text-white/20">Name</label>
                   <input
                     required
                     type="text"
+                    name="name"
                     placeholder="Full name"
                     className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent text-sm"
                     value={form.name}
@@ -106,6 +133,7 @@ export default function Contact() {
                   <input
                     required
                     type="email"
+                    name="email"
                     placeholder="mail@example.com"
                     className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent text-sm"
                     value={form.email}
@@ -118,6 +146,7 @@ export default function Contact() {
                 <label className="text-[9px] font-bold uppercase tracking-widest text-white/20">Message</label>
                 <textarea
                   required
+                  name="message"
                   placeholder="How can I help?"
                   rows={2}
                   className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent resize-none text-sm"
@@ -127,15 +156,23 @@ export default function Contact() {
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                className={`w-full py-3.5 rounded-lg font-bold uppercase tracking-widest text-[10px] transition-all ${submitted
-                  ? "bg-green-500 text-white"
-                  : "bg-white text-black hover:bg-indigo-500 hover:text-white"
+                disabled={loading}
+                whileHover={!loading ? { scale: 1.01 } : {}}
+                whileTap={!loading ? { scale: 0.99 } : {}}
+                className={`w-full py-3.5 rounded-lg font-bold uppercase tracking-widest text-[10px] transition-all ${loading
+                    ? "bg-indigo-500/50 text-white cursor-not-allowed"
+                    : "bg-white text-black hover:bg-indigo-500 hover:text-white"
                   }`}
               >
-                {submitted ? "Sent" : "Send"}
+                {loading ? "Sending..." : "Send"}
               </motion.button>
+
+              {successMsg && (
+                <div className="text-green-500 text-sm mt-3 text-center transition-opacity">{successMsg}</div>
+              )}
+              {errorMsg && (
+                <div className="text-red-500 text-sm mt-3 text-center transition-opacity">{errorMsg}</div>
+              )}
             </form>
           </motion.div>
 
