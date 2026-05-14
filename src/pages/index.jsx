@@ -1,4 +1,3 @@
-import About from "./home/About";
 import Certificates from "./home/Certificates";
 import Contact from "./home/Contact";
 import Home from "./home/Home";
@@ -10,6 +9,6 @@ import RootLayout from "./RootLayout";
 import UnifiedLayout from "./UnifiedLayout";
 
 export {
-    About, Certificates, Contact, Home, NotFound, Projects, Resume, RootLayout, Skills, UnifiedLayout
+    Certificates, Contact, Home, NotFound, Projects, Resume, RootLayout, Skills, UnifiedLayout
 };
 

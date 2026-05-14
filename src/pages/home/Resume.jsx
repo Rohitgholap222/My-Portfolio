@@ -1,66 +1,127 @@
-import { motion } from "framer-motion";
+import { FaBook, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 export default function Resume() {
+  const experiences = [
+    {
+      role: "Full Stack Developer (Intern)",
+      org: "JSPM JSCOE",
+      period: "SEP 2024 – PRESENT",
+      desc: "Specializing in enterprise resource planning modules (ERP). Building full-stack solutions with React, Spring Boot, and PostgreSQL."
+    }
+  ];
+
+  const education = [
+    {
+      title: "MCA",
+      org: "SPPU",
+      period: "2024 – 2026",
+      status: "Currently Pursuing"
+    },
+    {
+      title: "BCS",
+      org: "SPPU",
+      period: "2021 – 2024",
+      status: "CGPA: 8.27"
+    }
+  ];
+
+  const schooling = [
+    {
+      title: "HSC",
+      org: "Maharashtra State Board",
+      period: "2019 – 2021",
+      status: "75.33%"
+    },
+    {
+      title: "SSC",
+      org: "Maharashtra State Board",
+      period: "2018 – 2019",
+      status: "79%"
+    }
+  ];
+
   return (
-    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
-      <section className="max-w-6xl mx-auto px-8 py-12">
-        {/* HEADER - Compact */}
-        <div className="max-w-3xl mb-8 space-y-2">
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
-          >
-            <div className="w-6 h-px bg-indigo-500/50"></div>
-            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase">
-              Resume
-            </span>
-          </motion.div>
+    <div className="max-w-7xl mx-auto px-8 py-6 bg-gray-50/50">
+      <div className="text-center mb-12" data-aos="fade-up">
+        <h2 className="text-3xl font-josefin font-bold text-black mb-3">My <span className="text-primary">Resume</span></h2>
+        <div className="w-16 h-1 bg-primary mx-auto"></div>
+      </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
-          >
-            My <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Resume</span>.
-          </motion.h1>
-
-          <div className="flex flex-wrap gap-4 items-center pt-2">
-            <p className="text-sm text-white/50 max-w-sm leading-relaxed">
-              Curriculum vitae and academic records.
-            </p>
-            <motion.a
-              href="/Rohit-Resume.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-5 py-2.5 bg-white text-black rounded-lg font-bold text-[10px] uppercase tracking-widest hover:bg-indigo-500 hover:text-white transition-all shadow-sm"
-            >
-              PDF
-            </motion.a>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        {/* Experience Column */}
+        <div data-aos="fade-right">
+          <div className="flex items-center gap-2 mb-6">
+            <FaBriefcase className="text-xl text-primary" />
+            <h3 className="text-xl font-josefin font-bold text-black">Experience</h3>
+          </div>
+          <div className="space-y-6 border-l-2 border-gray-200 ml-3 pl-6 relative">
+            {experiences.map((exp, i) => (
+              <div key={i} className="relative">
+                <div className="absolute -left-[33px] top-0 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm"></div>
+                <span className="text-[10px] font-josefin font-bold text-primary uppercase tracking-wider block mb-1">
+                  {exp.period}
+                </span>
+                <h4 className="text-lg font-josefin font-bold text-black mb-0.5">{exp.role}</h4>
+                <p className="text-gray-500 font-josefin font-semibold text-xs mb-2">{exp.org}</p>
+                <p className="text-gray-600 font-josefin text-[13px] leading-relaxed">{exp.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Embedded Viewer - Optimized height */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.99 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-full h-[60vh] rounded-xl overflow-hidden shadow-xl bg-white/5 border border-white/5"
-        >
-          <iframe
-            src="/Rohit-Resume.pdf"
-            className="w-full h-full opacity-80"
-            title="Resume"
-          ></iframe>
-        </motion.div>
-      </section>
+        {/* Education Column */}
+        <div data-aos="fade-up">
+          <div className="flex items-center gap-2 mb-6">
+            <FaGraduationCap className="text-xl text-primary" />
+            <h3 className="text-xl font-josefin font-bold text-black">Education</h3>
+          </div>
+          <div className="space-y-6 border-l-2 border-gray-200 ml-3 pl-6 relative">
+            {education.map((edu, i) => (
+              <div key={i} className="relative">
+                <div className="absolute -left-[33px] top-0 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm"></div>
+                <span className="text-[10px] font-josefin font-bold text-primary uppercase tracking-wider block mb-1">
+                  {edu.period}
+                </span>
+                <h4 className="text-lg font-josefin font-bold text-black mb-0.5">{edu.title}</h4>
+                <p className="text-gray-500 font-josefin font-semibold text-xs mb-1">{edu.org}</p>
+                <p className="text-primary font-josefin font-bold text-[10px] uppercase">{edu.status}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-      {/* FOOTER - Compact */}
-      <footer className="py-8 border-t border-white/5 text-center">
-        <p className="text-white/10 text-[9px] font-bold tracking-[0.3em] uppercase">
-          © {new Date().getFullYear()} Rohit Gholap
-        </p>
-      </footer>
+        {/* Schooling Column */}
+        <div data-aos="fade-left">
+          <div className="flex items-center gap-2 mb-6">
+            <FaBook className="text-xl text-primary" />
+            <h3 className="text-xl font-josefin font-bold text-black">Schooling</h3>
+          </div>
+          <div className="space-y-6 border-l-2 border-gray-200 ml-3 pl-6 relative">
+            {schooling.map((item, i) => (
+              <div key={i} className="relative">
+                <div className="absolute -left-[33px] top-0 w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm"></div>
+                <span className="text-[10px] font-josefin font-bold text-primary uppercase tracking-wider block mb-1">
+                  {item.period}
+                </span>
+                <h4 className="text-lg font-josefin font-bold text-black mb-0.5">{item.title}</h4>
+                <p className="text-gray-500 font-josefin font-semibold text-xs mb-1">{item.org}</p>
+                <p className="text-primary font-josefin font-bold text-[10px] uppercase">{item.status}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 text-center" data-aos="fade-up">
+        <a
+          href="/Rohit-Resume.pdf"
+          download
+          className="bg-black text-white px-10 py-4 rounded-full font-josefin font-bold shadow-xl hover:bg-primary transition-all transform hover:-translate-y-1 inline-flex items-center gap-2"
+        >
+          Download Full Resume
+        </a>
+      </div>
     </div>
   );
 }
+

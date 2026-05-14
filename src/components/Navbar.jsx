@@ -8,11 +8,9 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const links = [
   { name: "Home", to: "home" },
-  { name: "Projects", to: "projects" },
   { name: "Skills", to: "skills" },
-  { name: "Certificates", to: "certificates" },
+  { name: "Works", to: "projects" },
   { name: "Resume", to: "resume" },
-  { name: "About", to: "about" },
   { name: "Contact", to: "contact" },
 ];
 
@@ -62,37 +60,44 @@ export default function Navbar() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`fixed top-0 left-0 w-full z-100 transition-colors duration-500 ${scrolled
-          ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-lg"
+        className={`fixed top-0 left-0 w-full z-[100] transition-colors duration-500 ${scrolled
+          ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
           : "bg-transparent"
           }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
 
           {/* Logo */}
           <div
             onClick={() => scrollToSection("home")}
-            className="text-2xl font-bold font-['Playfair_Display'] text-[#fcfcfc] tracking-tighter cursor-pointer group"
+            className="text-2xl font-bold font-josefin text-black tracking-tight cursor-pointer group"
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Rohit<span className="text-indigo-500 group-hover:text-indigo-400 transition-colors"> Gholap</span>
+              &lt; Rohit Gholap <span className="text-primary">/&gt;</span>
             </motion.div>
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex gap-8">
-            {links.map((link) => (
+          <div className="hidden md:flex items-center gap-8">
+            {links.slice(0, 5).map((link) => (
               <button
                 key={link.to}
                 onClick={() => scrollToSection(link.to)}
-                className="relative text-[11px] uppercase tracking-[0.25em] font-black transition-all duration-500 text-white/30 hover:text-white"
+                className={`text-[13px] font-josefin font-semibold transition-all duration-300 ${scrolled ? "text-gray-700 hover:text-primary" : "text-gray-800 hover:text-primary"
+                  }`}
               >
                 {link.name}
               </button>
             ))}
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="bg-black text-white px-6 py-2 rounded-md text-xs font-josefin font-bold tracking-wider hover:bg-primary transition-colors"
+            >
+              HIRE ME
+            </button>
           </div>
 
           {/* Mobile Hamburger Icon */}
@@ -100,9 +105,9 @@ export default function Navbar() {
             className="md:hidden w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none z-70"
             onClick={() => setOpen(!open)}
           >
-            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 rotate-45 translate-y-2' : 'w-6'}`}></span>
-            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'opacity-0' : 'w-4'}`}></span>
-            <span className={`h-0.5 bg-[#fcfcfc] transition-all duration-300 ${open ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`}></span>
+            <span className={`h-0.5 bg-black transition-all duration-300 ${open ? 'w-8 rotate-45 translate-y-2' : 'w-6'}`}></span>
+            <span className={`h-0.5 bg-black transition-all duration-300 ${open ? 'opacity-0' : 'w-4'}`}></span>
+            <span className={`h-0.5 bg-black transition-all duration-300 ${open ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`}></span>
           </button>
         </div>
       </motion.nav>
@@ -115,7 +120,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 h-screen bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 z-60 md:hidden"
+            className="fixed inset-0 h-screen bg-white flex flex-col items-center justify-center space-y-8 z-60 md:hidden"
           >
             {links.map((link, i) => (
               <motion.div
@@ -126,7 +131,7 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => scrollToSection(link.to)}
-                  className="text-4xl font-bold font-['Playfair_Display'] text-[#fcfcfc] hover:text-indigo-400 transition-colors"
+                  className="text-4xl font-bold font-josefin text-black hover:text-primary transition-colors"
                 >
                   {link.name}
                 </button>

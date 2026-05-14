@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
-import { motion } from "framer-motion";
 import { useRef, useState } from "react";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 export default function Contact() {
   const formRef = useRef();
@@ -43,142 +43,119 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden transition-all">
-      <section className="max-w-6xl mx-auto px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div className="max-w-7xl mx-auto px-8 py-10">
+      <div className="text-center mb-16" data-aos="fade-up">
+        <h2 className="text-4xl font-josefin font-bold text-black mb-4">Contact <span className="text-primary">Me!</span></h2>
+        <div className="w-20 h-1 bg-primary mx-auto"></div>
+      </div>
 
-          {/* LEFT SIDE: Header and Info - Compact */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="flex items-center gap-2"
-              >
-                <div className="w-6 h-px bg-indigo-500/50"></div>
-                <span className="text-indigo-400 font-bold tracking-[0.15em] text-[10px] uppercase block">
-                  Connect
-                </span>
-              </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* Contact Info */}
+        <div data-aos="fade-right">
+          <h3 className="text-3xl font-josefin font-bold text-black mb-8">Let's Talk</h3>
+          <p className="text-gray-600 font-josefin text-lg mb-10 leading-relaxed">
+            Have a project in mind or just want to say hi? Feel free to reach out to me. I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+          </p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc] leading-tight"
-              >
-                Start a <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Conversation</span>.
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-sm text-white/40 max-w-sm leading-relaxed"
-              >
-                Open to new projects and opportunities.
-              </motion.p>
+          <div className="space-y-6">
+            <div className="flex items-center gap-6 group">
+              <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-primary text-xl border border-gray-100 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <FaPhoneAlt />
+              </div>
+              <div>
+                <h4 className="text-sm font-josefin font-bold text-gray-400 uppercase tracking-wider">Phone</h4>
+                <p className="text-lg font-josefin font-bold text-black">+91 XXXXXXXXXX</p>
+              </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <h4 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Email</h4>
-                <motion.a
-                  whileHover={{ x: 3 }}
-                  href="mailto:rohitgholap045@gmail.com"
-                  className="text-lg font-bold font-['Playfair_Display'] text-[#fcfcfc] hover:text-indigo-400 transition-colors"
-                >
-                  rohitgholap045@gmail.com
-                </motion.a>
+            <div className="flex items-center gap-6 group">
+              <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-primary text-xl border border-gray-100 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <FaEnvelope />
               </div>
+              <div>
+                <h4 className="text-sm font-josefin font-bold text-gray-400 uppercase tracking-wider">Email</h4>
+                <p className="text-lg font-josefin font-bold text-black">rohitgholap045@gmail.com</p>
+              </div>
+            </div>
 
-              <div className="space-y-2">
-                <h4 className="text-[9px] uppercase tracking-[0.3em] font-black text-white/10">Follow</h4>
-                <div className="flex gap-4">
-                  {["LinkedIn", "GitHub"].map((social, i) => (
-                    <motion.a
-                      key={i}
-                      href="#"
-                      className="text-[10px] font-bold text-[#fcfcfc]/30 uppercase tracking-widest hover:text-indigo-400 transition-all border-b border-white/5"
-                    >
-                      {social}
-                    </motion.a>
-                  ))}
-                </div>
+            <div className="flex items-center gap-6 group">
+              <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-primary text-xl border border-gray-100 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <FaMapMarkerAlt />
+              </div>
+              <div>
+                <h4 className="text-sm font-josefin font-bold text-gray-400 uppercase tracking-wider">Address</h4>
+                <p className="text-lg font-josefin font-bold text-black">Pune, Maharashtra, India</p>
               </div>
             </div>
           </div>
-
-          {/* RIGHT SIDE: Form - Compact */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="lg:col-span-7 bg-white/5 border border-white/5 p-6 md:p-10 rounded-xl"
-          >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-1.5">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-white/20">Name</label>
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Full name"
-                    className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent text-sm"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-[9px] font-bold uppercase tracking-widest text-white/20">Email</label>
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="mail@example.com"
-                    className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent text-sm"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-[9px] font-bold uppercase tracking-widest text-white/20">Message</label>
-                <textarea
-                  required
-                  name="message"
-                  placeholder="How can I help?"
-                  rows={2}
-                  className="w-full py-2.5 border-b border-white/10 focus:border-indigo-400 transition-colors outline-none font-medium bg-transparent resize-none text-sm"
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                />
-              </div>
-
-              <motion.button
-                disabled={loading}
-                whileHover={!loading ? { scale: 1.01 } : {}}
-                whileTap={!loading ? { scale: 0.99 } : {}}
-                className={`w-full py-3.5 rounded-lg font-bold uppercase tracking-widest text-[10px] transition-all ${loading
-                    ? "bg-indigo-500/50 text-white cursor-not-allowed"
-                    : "bg-white text-black hover:bg-indigo-500 hover:text-white"
-                  }`}
-              >
-                {loading ? "Sending..." : "Send"}
-              </motion.button>
-
-              {successMsg && (
-                <div className="text-green-500 text-sm mt-3 text-center transition-opacity">{successMsg}</div>
-              )}
-              {errorMsg && (
-                <div className="text-red-500 text-sm mt-3 text-center transition-opacity">{errorMsg}</div>
-              )}
-            </form>
-          </motion.div>
-
         </div>
-      </section>
 
+        {/* Contact Form */}
+        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100" data-aos="fade-left">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+            <div className="space-y-2">
+              <label className="text-sm font-josefin font-bold text-gray-700 ml-1">Your Name</label>
+              <input
+                required
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-josefin font-semibold text-black"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-josefin font-bold text-gray-700 ml-1">Your Email</label>
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-josefin font-semibold text-black"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-josefin font-bold text-gray-700 ml-1">Your Message</label>
+              <textarea
+                required
+                name="message"
+                placeholder="How can I help you?"
+                rows={4}
+                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-josefin font-semibold text-black resize-none"
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+              />
+            </div>
+
+            <button
+              disabled={loading}
+              className={`w-full py-3.5 rounded-xl font-josefin font-bold text-base shadow-xl transition-all transform hover:-translate-y-1 ${loading
+                  ? "bg-gray-400 text-white cursor-not-allowed"
+                  : "bg-black text-white hover:bg-primary"
+                }`}
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+
+            {successMsg && (
+              <div className="p-4 bg-green-50 text-green-700 rounded-xl text-center font-josefin font-bold animate-fade-in">
+                {successMsg}
+              </div>
+            )}
+            {errorMsg && (
+              <div className="p-4 bg-red-50 text-red-700 rounded-xl text-center font-josefin font-bold animate-fade-in">
+                {errorMsg}
+              </div>
+            )}
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
+

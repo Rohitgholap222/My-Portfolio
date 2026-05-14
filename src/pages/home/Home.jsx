@@ -1,187 +1,105 @@
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { useNavigate } from "react-router-dom";
-import facebook from "/facebook.png";
-import github from "/github.png";
-import gmail from "/gmail.png";
-import insta from "/insta.png";
-import linkedin from "/linkedin.png";
+import { Typewriter } from "react-simple-typewriter";
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import photo from "/rohit.jpg";
-import whatsapp from "/whatsapp.png";
 
 export default function Home() {
-  const navigate = useNavigate();
   const professions = [
     "Backend Developer",
     "Frontend Developer",
     "Full Stack Learner",
   ];
 
-  const quickLinks = [
-    { img: github, title: "GitHub", link: "https://github.com/Rohitgholap222" },
-    { img: linkedin, title: "LinkedIn", link: "https://www.linkedin.com/in/rohit-gholap-576886270" },
-    { img: gmail, title: "Email", link: "mailto:test@gmail.com" },
-    { img: whatsapp, title: "WhatsApp", link: "https://wa.me/+91XXXXXXXXXX" },
-    { img: insta, title: "Instagram", link: "https://www.instagram.com/rohit_gholap172/" },
-    { img: facebook, title: "Facebook", link: "https://facebook.com" },
+  const socialLinks = [
+    { icon: <FaGithub />, link: "https://github.com/Rohitgholap222", color: "hover:text-black" },
+    { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/rohit-gholap-576886270", color: "hover:text-blue-600" },
+    { icon: <SiGmail />, link: "mailto:test@gmail.com", color: "hover:text-red-500" },
+    { icon: <FaWhatsapp />, link: "https://wa.me/+91XXXXXXXXXX", color: "hover:text-green-500" },
+    { icon: <FaInstagram />, link: "https://www.instagram.com/rohit_gholap172/", color: "hover:text-pink-500" },
+    { icon: <FaFacebookF />, link: "https://facebook.com", color: "hover:text-blue-800" },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
-  const scrollToSection = (id) => {
-    gsap.to(window, {
-      duration: 1.2,
-      scrollTo: { y: `#${id}`, offsetY: 80 },
-      ease: "power4.inOut",
-    });
-  };
-
   return (
-    <div className="w-full bg-transparent text-[#fcfcfc] selection:bg-indigo-500 selection:text-white">
-      {/* ------------------- HERO SECTION - More Compact ------------------- */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto px-8 pt-28 pb-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10"
-      >
-        {/* ------------ LEFT CONTENT ------------- */}
-        <div className="order-2 lg:order-1 space-y-4">
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-[10px] font-bold text-indigo-400 tracking-wide uppercase"
-          >
-            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            Ready to work
-          </motion.div>
-
-          <div className="space-y-3">
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display'] font-bold leading-tight text-[#fcfcfc] tracking-tight"
-            >
-              Full-stack
-              <span className="italic text-indigo-400"> developer</span>.
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-sm text-white/50 max-w-lg leading-relaxed font-normal"
-            >
-              I'm <span className="text-white font-medium">Rohit Gholap</span>, based in Pune.
-              Creating high-performance digital products with clean code.
-            </motion.p>
+    <div className="w-full min-h-screen hero-gradient flex items-center relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 py-10">
+        
+        {/* LEFT CONTENT */}
+        <div className="order-2 lg:order-1 flex flex-col items-start" data-aos="fade-right">
+          <div className="flex items-center gap-6 mb-8">
+            <div className="flex flex-col gap-5">
+              {socialLinks.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-2xl text-gray-800 transition-all duration-300 transform hover:scale-125 ${social.color}`}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+            <div className="w-[1.5px] h-40 bg-gray-800/20 ml-4 hidden lg:block"></div>
           </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-3 pt-1"
-          >
-            {professions.map((role, i) => (
-              <span
-                key={i}
-                className="text-[9px] uppercase tracking-[0.15em] font-bold text-white/20 border-l border-indigo-500/30 pl-3"
-              >
-                {role}
-              </span>
-            ))}
-          </motion.div>
+          <h3 className="text-gray-800 font-josefin font-bold text-xl mb-3">Hello, It's Me</h3>
+          <h1 className="text-5xl md:text-7xl font-josefin font-bold text-black mb-5 leading-tight">
+            Rohit Gholap
+          </h1>
+          <h2 className="text-2xl md:text-4xl font-josefin font-bold text-gray-800 mb-8 min-h-[1.5em] flex flex-wrap gap-x-2">
+            And I'm a{" "}
+            <span className="text-primary whitespace-nowrap">
+              <Typewriter
+                words={professions}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+          </h2>
+          <p className="text-gray-700 font-josefin text-lg max-w-xl mb-10 leading-relaxed">
+            I'm a passionate developer based in Pune. I specialize in creating high-performance digital products with clean code and modern aesthetics.
+          </p>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-4 pt-2"
-          >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => scrollToSection("projects")}
-              className="px-6 py-3 bg-white text-black rounded-lg font-bold shadow-lg hover:bg-indigo-500 hover:text-white transition-all text-[11px] uppercase tracking-widest"
+          <div className="flex flex-wrap gap-5">
+            <button
+              onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+              className="bg-black text-white px-10 py-4 rounded-full font-josefin font-bold shadow-xl hover:bg-primary transition-all transform hover:-translate-y-1 text-lg"
             >
-              Projects
-            </motion.button>
-            <motion.button
-              onClick={() => scrollToSection("contact")}
-              className="text-[#fcfcfc] font-bold border-b border-white/10 hover:border-indigo-400 transition-all pb-0.5 text-[11px] uppercase tracking-widest"
+              Hire Me
+            </button>
+            <button
+              className="border-2 border-black text-black px-10 py-4 rounded-full font-josefin font-bold hover:bg-black hover:text-white transition-all transform hover:-translate-y-1 text-lg"
             >
-              Contact
-            </motion.button>
-          </motion.div>
-        </div>
-
-        {/* ------------ RIGHT CONTENT: IMAGE - Smaller ------------------- */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-          className="order-1 lg:order-2 flex justify-center lg:justify-end"
-        >
-          <div className="relative group">
-            <div className="absolute -inset-2 border border-indigo-800/10 rounded-2xl rotate-2 -z-10 bg-indigo-800/5"></div>
-            <img
-              src={photo}
-              alt="Rohit"
-              className="
-                w-56 h-72
-                md:w-64 md:h-80
-                rounded-2xl
-                object-cover
-                shadow-xl group-hover:grayscale-0
-                transition-all duration-500
-              "
-            />
+              View Resume
+            </button>
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
 
-      {/* ------------------- CONNECT SECTION - More Compact ------------------- */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-8 py-10 relative z-10"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-center mb-6 ">
-          <div className="space-y-1 text-center md:text-left">
-            <span className="text-indigo-400 font-bold tracking-[0.2em] text-[9px] uppercase">Socials</span>
-            <h2 className="text-2xl font-['Playfair_Display'] font-bold text-[#fcfcfc]">Let's build together.</h2>
+        {/* RIGHT CONTENT: IMAGE */}
+        <div className="order-1 lg:order-2 flex justify-center lg:justify-end" data-aos="zoom-in">
+          <div className="relative">
+            {/* Decorative background for image */}
+            <div className="absolute -inset-4 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-white/30 shadow-2xl">
+              <img
+                src={photo}
+                alt="Rohit Gholap"
+                className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+              />
+            </div>
           </div>
-
-
         </div>
-        <div className="flex gap-3">
-          {quickLinks.map((item, i) => (
-            <motion.a
-              key={i}
-              href={item.link}
-              target="_blank"
-              whileHover={{ y: -3 }}
-              className="w-9 h-9 flex items-center justify-center bg-white/5 border border-white/5 rounded-lg shadow-md hover:border-indigo-500/50 transition-all"
-            >
-              <img src={item.img} alt={item.title} className="w-4 h-4 invert opacity-40 hover:opacity-100 transition-opacity" />
-            </motion.a>
-          ))}
-        </div>
-      </motion.section>
+      </div>
 
-
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-bounce"></div>
+      <div className="absolute bottom-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
     </div>
   );
 }
+

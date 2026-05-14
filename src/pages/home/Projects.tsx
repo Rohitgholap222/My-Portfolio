@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { FaCode, FaExternalLinkAlt } from "react-icons/fa";
 
 interface Project {
   title: string;
@@ -46,115 +46,75 @@ const projects: Project[] = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.4 },
-  },
-};
-
 export default function Projects() {
   return (
-    <div className="bg-transparent text-[#fcfcfc] selection:bg-indigo-500 overflow-x-hidden">
-      <section className="max-w-6xl mx-auto px-8 py-12">
-        {/* HEADER - Reduced Size */}
-        <div className="max-w-3xl mb-8 space-y-2">
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
-          >
-            <div className="w-6 h-px bg-indigo-500/50"></div>
-            <span className="text-indigo-400 font-bold tracking-[0.15em] text-[9px] uppercase">
-              Selected Work
-            </span>
-          </motion.div>
+    <div className="max-w-7xl mx-auto px-8 py-10">
+      <div className="text-center mb-10" data-aos="fade-up">
+        <h2 className="text-3xl font-josefin font-bold text-black mb-3">Latest <span className="text-primary">Projects</span></h2>
+        <div className="w-16 h-1 bg-primary mx-auto"></div>
+      </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-['Playfair_Display'] font-bold tracking-tight text-[#fcfcfc]"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="group relative bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-500"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
-            Key <span className="italic text-indigo-400 font-medium font-['Playfair_Display']">Projects</span>
-          </motion.h1>
-        </div>
-
-        {/* PROJECTS GRID - More Compact 3-column on large screens */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
-              className="group space-y-3 p-4 bg-white/5 border border-white/5 rounded-xl hover:border-indigo-500/30 transition-all shadow-sm"
-            >
-              {/* IMAGE CONTAINER - Smaller height */}
-              <div className="aspect-video bg-white/5 rounded-lg overflow-hidden relative mb-2 group">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                  <span className="text-[10px] text-white font-bold uppercase tracking-widest">{project.title}</span>
-                </div>
+            {/* Image Section */}
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-primary hover:text-white transition-colors"
+                  title="View Code"
+                >
+                  <FaCode className="text-lg" />
+                </a>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-primary hover:text-white transition-colors"
+                  title="Live Demo"
+                >
+                  <FaExternalLinkAlt className="text-lg" />
+                </a>
               </div>
+            </div>
 
-              {/* DETAILS */}
-              <div className="space-y-2">
-                <h3 className="text-base font-bold font-['Playfair_Display'] text-[#fcfcfc] group-hover:text-indigo-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-xs text-white/40 leading-relaxed font-normal line-clamp-2">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tech.slice(0, 3).map((t, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-0.5 bg-white/5 rounded-md text-[8px] font-bold text-white/20 uppercase"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                  {project.tech.length > 3 && (
-                    <span className="text-[8px] text-white/10 font-bold">+{project.tech.length - 3}</span>
-                  )}
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="inline-flex items-center gap-1.5 text-white/60 font-bold text-[9px] uppercase tracking-widest hover:text-indigo-400 transition-all"
+            {/* Content Section */}
+            <div className="p-5">
+              <div className="flex flex-wrap gap-2 mb-3">
+                {project.tech.slice(0, 3).map((t, i) => (
+                  <span
+                    key={i}
+                    className="text-[9px] font-josefin font-bold text-primary uppercase tracking-wider"
                   >
-                    Details →
-                  </a>
-                </div>
+                    #{t}
+                  </span>
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+              <h3 className="text-lg font-josefin font-bold text-black mb-1.5 group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 font-josefin text-[13px] leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+

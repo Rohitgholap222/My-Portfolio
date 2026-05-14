@@ -1,4 +1,4 @@
-import { About, Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
+import { Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -68,48 +68,43 @@ export default function UnifiedLayout() {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="pb-20 relative overflow-x-hidden">
+        <div ref={containerRef} className="pb-1 relative overflow-x-hidden">
             {/* Scroll Progress Bar */}
             <div
-                className="fixed top-0 left-0 h-1 bg-indigo-500 z-50 transition-all duration-100 ease-out"
+                className="fixed top-0 left-0 h-1 bg-primary z-[150] transition-all duration-100 ease-out"
                 id="scroll-progress"
                 style={{ width: "0%" }}
             />
 
-            <div className="relative z-10 space-y-48">
-                {/* Each section now has a minimum height and padding to feel distinct */}
-                <div id="home" className="reveal-section min-h-[90vh] flex items-center pt-20">
+            <div className="relative z-10 flex flex-col gap-0">
+                <div id="home" className="min-h-screen flex items-center">
                     <Home />
                 </div>
 
-                <div id="about" className="reveal-section pt-24 min-h-[60vh]">
-                    <About />
-                </div>
-
-                <div id="skills" className="reveal-section pt-24 min-h-[60vh]">
+                <div id="skills">
                     <Skills />
                 </div>
 
-                <div id="projects" className="reveal-section pt-24 min-h-[80vh]">
+                <div id="projects">
                     <Projects />
                 </div>
 
-                <div id="certificates" className="reveal-section pt-24 min-h-[60vh]">
-                    <Certificates />
-                </div>
-
-                <div id="resume" className="reveal-section pt-24 min-h-[80vh]">
+                <div id="resume" className="bg-gray-50/50">
                     <Resume />
                 </div>
 
-                <div id="contact" className="reveal-section pt-24 pb-24 min-h-[80vh]">
+                <div id="certificates">
+                    <Certificates />
+                </div>
+
+                <div id="contact" className="pb-10">
                     <Contact />
                 </div>
             </div>
 
             {/* Simplified Footer */}
-            <footer className="py-12 border-t border-white/5 text-center mt-32 relative z-10">
-                <p className="text-white/20 text-[11px] font-medium tracking-widest uppercase">
+            <footer className="py-12 border-t border-gray-100 text-center relative z-10 bg-white mt-10">
+                <p className="text-gray-400 text-[13px] font-josefin font-medium tracking-wider uppercase">
                     © {new Date().getFullYear()} Rohit Gholap • Full Stack Developer
                 </p>
             </footer>
