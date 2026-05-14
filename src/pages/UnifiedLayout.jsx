@@ -103,41 +103,41 @@ export default function UnifiedLayout() {
                 </div>
             </div>
 
-            {/* Yellow Premium Footer */}
-            <footer className="bg-primary py-16 text-center relative z-10">
+            {/* Yellow Premium Footer - Compact */}
+            <footer className="bg-primary py-10 text-center relative z-10">
                 <div className="max-w-7xl mx-auto px-8">
-                    <h2 className="text-5xl font-josefin font-bold text-black mb-12">Let's Talk</h2>
+                    <h2 className="text-3xl font-josefin font-bold text-black mb-8">Let's Talk</h2>
                     
-                    <div className="flex justify-center gap-12 mb-12">
-                        <a href="https://github.com/Rohitgholap222" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
-                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                    <div className="flex justify-center gap-10 mb-8">
+                        <a href="https://github.com/Rohitgholap222" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1.5 group">
+                            <div className="w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-xl text-black group-hover:bg-black group-hover:text-white transition-all">
                                 <FaGithub />
                             </div>
-                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">GitHub</span>
+                            <span className="text-[10px] font-josefin font-bold text-black/60 uppercase tracking-widest">GitHub</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/rohit-gholap-576886270" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
-                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                        <a href="https://www.linkedin.com/in/rohit-gholap-576886270" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1.5 group">
+                            <div className="w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-xl text-black group-hover:bg-black group-hover:text-white transition-all">
                                 <FaLinkedinIn />
                             </div>
-                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">LinkedIn</span>
+                            <span className="text-[10px] font-josefin font-bold text-black/60 uppercase tracking-widest">LinkedIn</span>
                         </a>
-                        <a href="https://wa.me/+91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
-                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                        <a href="https://wa.me/+91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1.5 group">
+                            <div className="w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-xl text-black group-hover:bg-black group-hover:text-white transition-all">
                                 <FaWhatsapp />
                             </div>
-                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">WhatsApp</span>
+                            <span className="text-[10px] font-josefin font-bold text-black/60 uppercase tracking-widest">WhatsApp</span>
                         </a>
-                        <a href="https://www.instagram.com/rohit_gholap172/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
-                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                        <a href="https://www.instagram.com/rohit_gholap172/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1.5 group">
+                            <div className="w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-xl text-black group-hover:bg-black group-hover:text-white transition-all">
                                 <FaInstagram />
                             </div>
-                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">Instagram</span>
+                            <span className="text-[10px] font-josefin font-bold text-black/60 uppercase tracking-widest">Instagram</span>
                         </a>
                     </div>
 
-                    <div className="pt-8 border-t border-black/10">
-                        <p className="text-black/80 font-josefin font-bold text-sm tracking-wide">
-                            Made with ❤️ by Rohit Gholap
+                    <div className="pt-6 border-t border-black/10">
+                        <p className="text-black/80 font-josefin font-bold text-xs tracking-wide">
+                            Crafted by Rohit Gholap @ 2026
                         </p>
                     </div>
                 </div>

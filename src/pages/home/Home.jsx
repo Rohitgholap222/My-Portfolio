@@ -14,10 +14,9 @@ export default function Home() {
   const socialLinks = [
     { icon: <FaGithub />, link: "https://github.com/Rohitgholap222", color: "hover:text-black" },
     { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/rohit-gholap-576886270", color: "hover:text-blue-600" },
-    { icon: <SiGmail />, link: "mailto:test@gmail.com", color: "hover:text-red-500" },
+    { icon: <SiGmail />, link: "rohitgholap045@gmail.com", color: "hover:text-red-500" },
     { icon: <FaWhatsapp />, link: "https://wa.me/+91XXXXXXXXXX", color: "hover:text-green-500" },
     { icon: <FaInstagram />, link: "https://www.instagram.com/rohit_gholap172/", color: "hover:text-pink-500" },
-    { icon: <FaFacebookF />, link: "https://facebook.com", color: "hover:text-blue-800" },
   ];
 
   return (
@@ -103,7 +102,7 @@ export default function Home() {
               <img
                 src={photo}
                 alt="Rohit Gholap"
-                className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover object-top transform hover:scale-110 transition-transform duration-700"
               />
             </div>
           </div>

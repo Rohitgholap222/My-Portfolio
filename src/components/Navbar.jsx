@@ -39,9 +39,9 @@ export default function Navbar() {
       navigate("/", { state: { scrollTo: id } });
     } else {
       gsap.to(window, {
-        duration: 1.2,
+        duration: 0.8,
         scrollTo: { y: `#${id}`, offsetY: 80 },
-        ease: "power4.inOut",
+        ease: "power2.out",
       });
     }
   };
@@ -83,14 +83,16 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {links.slice(0, 5).map((link) => (
-              <button
+              <motion.button
                 key={link.to}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(link.to)}
                 className={`text-[13px] font-josefin font-semibold transition-all duration-300 ${scrolled ? "text-gray-700 hover:text-primary" : "text-gray-800 hover:text-primary"
                   }`}
               >
                 {link.name}
-              </button>
+              </motion.button>
             ))}
             <button
               onClick={() => scrollToSection("contact")}
