@@ -74,7 +74,7 @@ export default function Home() {
                 onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
                 className="bg-black text-white px-8 py-3 rounded-full font-josefin font-bold shadow-lg hover:bg-primary transition-all transform hover:-translate-y-1"
               >
-                Hire Me
+                CONTACT
               </button>
               <button
                 className="border-2 border-black text-black px-8 py-3 rounded-full font-josefin font-bold hover:bg-black hover:text-white transition-all transform hover:-translate-y-1"
@@ -110,9 +110,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-bounce"></div>
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
     </div>
   );
 }
