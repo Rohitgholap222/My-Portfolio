@@ -25,58 +25,72 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 py-10">
         
         {/* LEFT CONTENT */}
-        <div className="order-2 lg:order-1 flex flex-col items-start" data-aos="fade-right">
-          <div className="flex items-center gap-6 mb-8">
-            <div className="flex flex-col gap-5">
+        <div className="order-2 lg:order-1 flex flex-col md:flex-row items-center lg:items-start gap-10" data-aos="fade-right">
+          
+          {/* Social Sidebar - Refined */}
+          <div className="hidden lg:flex items-center gap-6">
+            <div className="flex flex-col gap-6">
               {socialLinks.map((social, i) => (
                 <a
                   key={i}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-2xl text-gray-800 transition-all duration-300 transform hover:scale-125 ${social.color}`}
+                  className={`text-xl text-gray-800 transition-all duration-300 transform hover:scale-125 ${social.color}`}
                 >
                   {social.icon}
                 </a>
               ))}
             </div>
-            <div className="w-[1.5px] h-40 bg-gray-800/20 ml-4 hidden lg:block"></div>
+            <div className="w-[1px] h-48 bg-black/10"></div>
           </div>
 
-          <h3 className="text-gray-800 font-josefin font-bold text-xl mb-3">Hello, It's Me</h3>
-          <h1 className="text-5xl md:text-7xl font-josefin font-bold text-black mb-5 leading-tight">
-            Rohit Gholap
-          </h1>
-          <h2 className="text-2xl md:text-4xl font-josefin font-bold text-gray-800 mb-8 min-h-[1.5em] flex flex-wrap gap-x-2">
-            And I'm a{" "}
-            <span className="text-primary whitespace-nowrap">
-              <Typewriter
-                words={professions}
-                loop={true}
-                cursor
-                cursorStyle="_"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </span>
-          </h2>
-          <p className="text-gray-700 font-josefin text-lg max-w-xl mb-10 leading-relaxed">
-            I'm a passionate developer based in Pune. I specialize in creating high-performance digital products with clean code and modern aesthetics.
-          </p>
+          {/* Main Text Content */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h3 className="text-gray-800 font-josefin font-bold text-lg mb-2">Hello, It's Me</h3>
+            <h1 className="text-4xl md:text-6xl font-josefin font-bold text-black mb-4 leading-tight">
+              Rohit Gholap
+            </h1>
+            <h2 className="text-xl md:text-2xl font-josefin font-bold text-gray-800 mb-6 min-h-[1.5em] flex flex-wrap justify-center lg:justify-start gap-x-2">
+              And I'm a{" "}
+              <span className="text-primary whitespace-nowrap">
+                <Typewriter
+                  words={professions}
+                  loop={true}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
+            </h2>
+            <p className="text-gray-600 font-josefin text-base max-w-lg mb-8 leading-relaxed">
+              I'm a passionate developer based in Pune. I specialize in creating high-performance digital products with clean code and modern aesthetics.
+            </p>
 
-          <div className="flex flex-wrap gap-5">
-            <button
-              onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-              className="bg-black text-white px-10 py-4 rounded-full font-josefin font-bold shadow-xl hover:bg-primary transition-all transform hover:-translate-y-1 text-lg"
-            >
-              Hire Me
-            </button>
-            <button
-              className="border-2 border-black text-black px-10 py-4 rounded-full font-josefin font-bold hover:bg-black hover:text-white transition-all transform hover:-translate-y-1 text-lg"
-            >
-              View Resume
-            </button>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+              <button
+                onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                className="bg-black text-white px-8 py-3 rounded-full font-josefin font-bold shadow-lg hover:bg-primary transition-all transform hover:-translate-y-1"
+              >
+                Hire Me
+              </button>
+              <button
+                className="border-2 border-black text-black px-8 py-3 rounded-full font-josefin font-bold hover:bg-black hover:text-white transition-all transform hover:-translate-y-1"
+              >
+                View Resume
+              </button>
+            </div>
+
+            {/* Mobile Socials */}
+            <div className="flex lg:hidden gap-6">
+              {socialLinks.slice(0, 4).map((social, i) => (
+                <a key={i} href={social.link} className={`text-xl text-gray-800 ${social.color}`}>
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

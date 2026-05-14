@@ -1,4 +1,5 @@
 import { Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
+import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -102,11 +103,44 @@ export default function UnifiedLayout() {
                 </div>
             </div>
 
-            {/* Simplified Footer */}
-            <footer className="py-12 border-t border-gray-100 text-center relative z-10 bg-white mt-10">
-                <p className="text-gray-400 text-[13px] font-josefin font-medium tracking-wider uppercase">
-                    © {new Date().getFullYear()} Rohit Gholap • Full Stack Developer
-                </p>
+            {/* Yellow Premium Footer */}
+            <footer className="bg-primary py-16 text-center relative z-10">
+                <div className="max-w-7xl mx-auto px-8">
+                    <h2 className="text-5xl font-josefin font-bold text-black mb-12">Let's Talk</h2>
+                    
+                    <div className="flex justify-center gap-12 mb-12">
+                        <a href="https://github.com/Rohitgholap222" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                                <FaGithub />
+                            </div>
+                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rohit-gholap-576886270" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                                <FaLinkedinIn />
+                            </div>
+                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">LinkedIn</span>
+                        </a>
+                        <a href="https://wa.me/+91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                                <FaWhatsapp />
+                            </div>
+                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">WhatsApp</span>
+                        </a>
+                        <a href="https://www.instagram.com/rohit_gholap172/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 group">
+                            <div className="w-12 h-12 bg-black/5 rounded-full flex items-center justify-center text-2xl text-black group-hover:bg-black group-hover:text-white transition-all">
+                                <FaInstagram />
+                            </div>
+                            <span className="text-xs font-josefin font-bold text-black/60 uppercase tracking-widest">Instagram</span>
+                        </a>
+                    </div>
+
+                    <div className="pt-8 border-t border-black/10">
+                        <p className="text-black/80 font-josefin font-bold text-sm tracking-wide">
+                            Made with ❤️ by Rohit Gholap
+                        </p>
+                    </div>
+                </div>
             </footer>
         </div>
     );
