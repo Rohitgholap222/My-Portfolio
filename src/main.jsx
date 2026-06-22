@@ -1,11 +1,10 @@
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import "./App.css";
-import { RouterProvider } from 'react-router-dom';
-import router from './router/routes.jsx';
+import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import emailjs from '@emailjs/browser';
+import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import "./App.css";
+import router from './router/routes.jsx';
 
 // Initialize EmailJS
 emailjs.init(import.meta.env.VITE_EMAIL_PUBLIC_KEY);
