@@ -20,6 +20,18 @@ export default function Contact() {
     setSuccessMsg("");
     setErrorMsg("");
 
+    // Validate environment variables
+    if (!import.meta.env.VITE_EMAIL_SERVICE || !import.meta.env.VITE_EMAIL_TEMPLATE || !import.meta.env.VITE_EMAIL_PUBLIC_KEY) {
+      setErrorMsg("Email configuration is missing. Please contact the site owner.");
+      setLoading(false);
+      console.error("EmailJS configuration missing:", {
+        service: import.meta.env.VITE_EMAIL_SERVICE,
+        template: import.meta.env.VITE_EMAIL_TEMPLATE,
+        publicKey: import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      });
+      return;
+    }
+
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAIL_SERVICE,
@@ -36,6 +48,7 @@ export default function Contact() {
         },
         (error) => {
           setLoading(false);
+          console.error("EmailJS error:", error);
           setErrorMsg("Failed to send the message. Please try again.");
           setTimeout(() => setErrorMsg(""), 5000);
         }
