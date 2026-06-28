@@ -3,8 +3,10 @@ import { Typewriter } from "react-simple-typewriter";
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import photo from "/rohit.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   const professions = [
     "Backend Developer",
     "Frontend Developer",
@@ -76,7 +78,8 @@ export default function Home() {
                 CONTACT
               </button>
               <button
-                className="border-2 border-black text-black px-8 py-3 rounded-full font-josefin font-bold hover:bg-black hover:text-white transition-all transform hover:-translate-y-1"
+              onClick={() => navigate("/resume")}
+                className="bg-primary text-white px-8 py-3 rounded-full font-josefin font-bold shadow-lg hover:bg-primary transition-all transform hover:-translate-y-1"
               >
                 View Resume
               </button>
