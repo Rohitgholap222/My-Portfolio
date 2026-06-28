@@ -112,15 +112,38 @@ export default function Resume() {
         </div>
       </div>
 
-      <div className="mt-10 text-center" data-aos="fade-up">
-        <a
-          href="/Rohit-Resume.pdf"
-          download
-          className="bg-black text-white px-10 py-4 rounded-full font-josefin font-bold shadow-xl hover:bg-primary transition-all transform hover:-translate-y-1 inline-flex items-center gap-2"
-        >
-          Download Full Resume
-        </a>
-      </div>
+      <section className="mt-16 text-center" data-aos="fade-up">
+  <h2 className="text-3xl font-bold mb-8">Resume</h2>
+
+  <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl border">
+    <iframe
+      src="/rohit resume.pdf"
+      title="Resume Preview"
+      className="w-full h-[600px]"
+    />
+  </div>
+
+  <div className="flex justify-center gap-4 mt-8">
+    {/* View Resume */}
+    <a
+      href="/rohit resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:opacity-90 transition"
+    >
+      View Resume
+    </a>
+
+    {/* Download Resume */}
+    <a
+      href="/rohit resume.pdf"
+      download="rohit-resume.pdf"
+      className="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
+    >
+      Download Resume
+    </a>
+  </div>
+</section>````
     </div>
   );
 }
