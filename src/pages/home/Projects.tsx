@@ -10,6 +10,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Royal Restaurant Website",
+    description: "A modern, responsive restaurant website featuring an interactive menu, online table reservation, gallery, contact section etc.",
+    tech: ["React", "Tailwind-css"],
+    link: "https://freelance-template-restaurant.vercel.app/",
+    image: "/project/restaurant.png",
+  },
+  {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
     tech: ["Java", "PostgreSQL", "Tailwind", "Spring Boot", "React"],
@@ -17,10 +24,17 @@ const projects: Project[] = [
     image: "/project/ERP.png",
   },
   {
+    title: "Smart Blood Donation System",
+    description: "A web-based platform that connects blood donors with recipients, enabling real-time donor registration, blood requests, and efficient blood availability management.",
+    tech: ["Java", "Spring-boot", "React"],
+    link: "https://smart-blood-donation.vercel.app/",
+    image: "/project/blood-donation.png",
+  },
+  {
     title: "Increda Billing Management System",
     description: "Full-stack billing management system for small businesses.",
     tech: ["Java", "MySQL", "AWT/Swing"],
-    link: "https://github.com/",
+    link: "",
     image: "/project/incredabill.png",
   },
   {
