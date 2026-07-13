@@ -78,15 +78,15 @@ export default function Home() {
             {/* Content */}
             <div className="text-center lg:text-left">
 
-              <h3 className="text-lg font-bold text-gray-700 mb-2">
+              <h3 className="text-sm font-bold text-gray-700 mb-2">
                 Hello, It's Me
               </h3>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight">
+              <h1 className="text-4xl sm:text-4xl lg:text-4xl font-bold text-black leading-tight">
                 Rohit Gholap
               </h1>
 
-              <h2 className="mt-4 text-xl sm:text-2xl font-bold text-gray-700 min-h-[40px]">
+              <h2 className="mt-4 text-xl sm:text-xl font-bold text-gray-700 min-h-[40px]">
                 And I'm a{" "}
                 <span className="text-primary">
                   <Typewriter
