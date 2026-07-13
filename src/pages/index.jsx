@@ -7,8 +7,9 @@ import Resume from "./home/Resume";
 import Skills from "./home/Skills";
 import RootLayout from "./RootLayout";
 import UnifiedLayout from "./UnifiedLayout";
+import Services from "./home/Services";
 
 export {
-    Certificates, Contact, Home, NotFound, Projects, Resume, RootLayout, Skills, UnifiedLayout
+    Certificates, Contact, Home, NotFound, Projects, Resume, RootLayout, Skills, UnifiedLayout, Services
 };
 

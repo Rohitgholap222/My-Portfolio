@@ -1,4 +1,4 @@
-import { Certificates, Contact, Home, Projects, Resume, Skills } from "@/pages";
+import { Certificates, Contact, Home, Projects, Resume, Skills, Services } from "@/pages";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -100,6 +100,10 @@ export default function UnifiedLayout() {
 
                 <div id="contact" className="pb-10">
                     <Contact />
+                </div>
+
+                <div id="services">
+                    <Services />
                 </div>
             </div>
 

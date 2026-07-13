@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import {
   FaGithub,
@@ -16,7 +15,7 @@ export default function Home() {
   const professions = [
     "Backend Developer",
     "Frontend Developer",
-    "Full Stack Learner",
+    "Full Stack Developer",
   ];
 
   const socialLinks = [
@@ -37,7 +36,7 @@ export default function Home() {
     },
     {
       icon: <FaWhatsapp />,
-      link: "https://wa.me/+91XXXXXXXXXX",
+      link: "https://wa.me/91XXXXXXXXXX",
       color: "hover:text-green-500",
     },
     {
@@ -48,138 +47,174 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full min-h-screen hero-gradient flex items-start lg:items-center relative overflow-hidden pt-24 sm:pt-28 lg:pt-0">
-<div className="max-w-7xl mx-auto px-5 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 pb-10">
-        {/* LEFT CONTENT */}
-        <div
-          className="order-2 lg:order-1 flex flex-col md:flex-row items-center lg:items-start gap-6 md:gap-10"
-          data-aos="fade-right"
-        >
+    <section
+      id="home"
+      className="w-full min-h-screen hero-gradient flex items-center pt-20"
+    >
+      <div className="max-w-7xl mx-auto w-full px-5 lg:px-8">
 
-          {/* Desktop Social Sidebar */}
-          <div className="hidden lg:flex items-center gap-6">
-            <div className="flex flex-col gap-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-center h-full">
+
+          {/* LEFT */}
+          <div className="order-2 lg:order-1 flex gap-8">
+
+            {/* Desktop Social */}
+            <div className="hidden lg:flex flex-col items-center gap-6">
               {socialLinks.map((social, i) => (
                 <a
                   key={i}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-xl text-gray-800 transition-all duration-300 transform hover:scale-125 ${social.color}`}
+                  className={`text-xl transition-all duration-300 hover:scale-125 ${social.color}`}
                 >
                   {social.icon}
                 </a>
               ))}
+
+              <div className="w-px h-40 bg-gray-300"></div>
             </div>
 
-            <div className="w-[1px] h-48 bg-black/10"></div>
+            {/* Content */}
+            <div className="text-center lg:text-left">
+
+              <h3 className="text-lg font-bold text-gray-700 mb-2">
+                Hello, It's Me
+              </h3>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight">
+                Rohit Gholap
+              </h1>
+
+              <h2 className="mt-4 text-xl sm:text-2xl font-bold text-gray-700 min-h-[40px]">
+                And I'm a{" "}
+                <span className="text-primary">
+                  <Typewriter
+                    words={professions}
+                    loop
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1200}
+                  />
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-xl text-gray-600 leading-7">
+                I'm a passionate developer based in Pune. I specialize in
+                creating high-performance websites, resumes and digital
+                designs with clean code and modern aesthetics.
+              </p>
+
+              {/* SERVICES */}
+              <div className="mt-5">
+
+                <h4 className="font-bold text-lg mb-4">
+                  💼 What I Can Help You With
+                </h4>
+
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+
+                  {[
+                    "🌐 Business Website",
+                    "📄 Resume Service",
+                    "🎨 Canva Design",
+                    "💌 Invitation Card",
+                    "⚡ Other Services",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 rounded-full border border-gray-300 text-sm font-medium bg-white"
+                    >
+                      {item}
+                    </span>
+                  ))}
+
+                </div>
+
+              </div>
+
+              <p className="mt-6 text-gray-700 font-medium">
+                📞 Feel free to contact me for your next project.
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4">
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-primary transition"
+                >
+                  CONTACT
+                </button>
+
+                <button
+                  onClick={() => navigate("/resume")}
+                  className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition"
+                >
+                  View Resume
+                </button>
+
+              </div>
+
+              {/* Mobile Social */}
+              <div className="flex lg:hidden justify-center mt-8 gap-6">
+
+                {socialLinks.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-2xl ${social.color}`}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+
+              </div>
+
+            </div>
           </div>
 
-          {/* Main Text */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-2 lg:mt-0">
+          {/* RIGHT IMAGE */}
+          <div className="order-1 lg:order-2 flex justify-center items-center h-full">
 
-            <h3 className="text-gray-800 font-josefin font-bold text-lg mb-2">
-              Hello, It's Me
-            </h3>
+            <div className="relative">
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-josefin font-bold text-black mb-4 leading-tight">
-              Rohit Gholap
-            </h1>
+              <div className="absolute inset-0 rounded-full bg-white/20 blur-3xl animate-pulse"></div>
 
-            <h2 className="text-lg sm:text-xl md:text-2xl font-josefin font-bold text-gray-800 mb-6 min-h-[2.5rem] flex flex-wrap justify-center lg:justify-start gap-x-2">
-              And I'm a{" "}
-              <span className="text-primary whitespace-nowrap">
-                <Typewriter
-                  words={professions}
-                  loop={true}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={70}
-                  deleteSpeed={50}
-                  delaySpeed={1000}
+              <div className="relative
+                w-30 h-30
+                sm:w-56 sm:h-56
+                md:w-72 md:h-72
+                lg:w-96 lg:h-96
+                rounded-full
+                overflow-hidden
+                border-4 lg:border-8
+                border-white/30
+                shadow-2xl">
+
+                <img
+                  src={photo}
+                  alt="Rohit Gholap"
+                  className="w-full h-full object-cover object-top hover:scale-110 transition duration-700"
                 />
-              </span>
-            </h2>
 
-            <p className="text-gray-600 font-josefin text-base max-w-lg mb-8 leading-relaxed">
-              I'm a passionate developer based in Pune. I specialize in
-              creating high-performance digital products with clean code and
-              modern aesthetics.
-            </p>
+              </div>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
-
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-                className="bg-black text-white px-8 py-3 rounded-full font-josefin font-bold shadow-lg hover:bg-primary transition-all transform hover:-translate-y-1"
-              >
-                CONTACT
-              </button>
-
-              <button
-                onClick={() => navigate("/resume")}
-                className="bg-primary text-white px-8 py-3 rounded-full font-josefin font-bold shadow-lg hover:bg-primary transition-all transform hover:-translate-y-1"
-              >
-                View Resume
-              </button>
-
-            </div>
-
-            {/* Mobile Social Icons */}
-            <div className="flex lg:hidden gap-6">
-              {socialLinks.map((social, i) => (
-                <a
-                  key={i}
-                  href={social.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-xl text-gray-800 transition-all ${social.color}`}
-                >
-                  {social.icon}
-                </a>
-              ))}
             </div>
 
           </div>
-        </div>
 
-        {/* RIGHT CONTENT */}
-        <div
-className="order-1 lg:order-2 flex justify-center lg:justify-end mb-8 lg:mb-0"
-          data-aos="zoom-in"
-        >
-          <div className="relative">
-
-            {/* Glow */}
-            <div className="absolute -inset-4 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
-
-            {/* Image */}
-            <div className="relative
-w-50 h-50
-sm:w-48 sm:h-48
-md:w-72 md:h-72
-lg:w-96 lg:h-96
-rounded-full
-overflow-hidden
-border-4 sm:border-6 lg:border-8
-border-white/30
-shadow-2xl">
-              <img
-                src={photo}
-                alt="Rohit Gholap"
-                className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-
-          </div>
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }
