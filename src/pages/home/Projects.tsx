@@ -17,6 +17,14 @@ const projects: Project[] = [
     image: "/project/restaurant.png",
   },
   {
+  title: "SoulStretch Yoga Website",
+  description:
+    "A modern, responsive yoga website featuring yoga programs, class schedules, trainer profiles, membership plans, testimonials, gallery, contact section, and online inquiry.",
+  tech: ["React", "Tailwind CSS"],
+  link: "https://soul-stretch-yoga.vercel.app/",
+  image: "/project/yoga.png",
+},
+  {
     title: "Placement Management System",
     description: "Full-stack portal for training & placement with admin and student modules.",
     tech: ["Java", "PostgreSQL", "Tailwind", "Spring Boot", "React"],
